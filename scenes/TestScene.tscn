@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://prefabs/enemies/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://prefabs/towers/Tower.tscn" type="PackedScene" id=2]
+[ext_resource path="res://prefabs/enemies/SecondEnemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/EnemyController.gd" type="Script" id=4]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 100, 100 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+
+[sub_resource type="Curve3D" id=3]
+_data = {
+"points": PoolVector3Array( 5, 0, 0, -5, 0, 0, -1, 0.5, 20, -4, 0, 11, 4, 0, -11, -26, 0.5, -12, -4, 0, -7, 4, 0, 7, 0, 0.5, -4, 4, 0, 0, -4, 0, 0, -1, 0.5, 20 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0.356846, 0.845455 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[node name="TestScene" type="Spatial"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.0305209, 0.999534, 0, -0.999534, -0.0305209, -5, 36.7081, 6.17 )
+
+[node name="Plane" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="EnemyPath" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+curve = SubResource( 3 )
+script = ExtResource( 4 )
+enemies = [ ExtResource( 1 ), ExtResource( 3 ) ]
+time_spawn = 1.5
+
+[node name="Tower" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, -11, 1, 0 )
+shoot_damage = 50.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 12 )
+texture = SubResource( 5 )
+region_enabled = true
+region_rect = Rect2( 10, 2, 3, 4 )
