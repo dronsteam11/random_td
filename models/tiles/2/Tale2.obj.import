@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Tale2.obj-63baeec4b1e7a6ac3d2fe997be5451d9.mesh"
+
+[deps]
+
+files=[ "res://.import/Tale2.obj-63baeec4b1e7a6ac3d2fe997be5451d9.mesh" ]
+
+source_file="res://models/tiles/2/Tale2.obj"
+dest_files=[ "res://.import/Tale2.obj-63baeec4b1e7a6ac3d2fe997be5451d9.mesh", "res://.import/Tale2.obj-63baeec4b1e7a6ac3d2fe997be5451d9.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=false

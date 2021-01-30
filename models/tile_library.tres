@@ -1,0 +1,37 @@
+[gd_resource type="MeshLibrary" load_steps=6 format=2]
+
+[ext_resource path="res://models/tiles/1/Tale1.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://models/tiles/2/Tale2.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://models/tiles/3/Tale3.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://models/tiles/4/Tale4.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://models/tiles/5/Tale5.obj" type="ArrayMesh" id=5]
+
+[resource]
+item/0/name = "1"
+item/0/mesh = ExtResource( 1 )
+item/0/mesh_transform = null
+item/0/shapes = [  ]
+item/0/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/1/name = "2"
+item/1/mesh = ExtResource( 2 )
+item/1/mesh_transform = null
+item/1/shapes = [  ]
+item/1/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/2/name = "3"
+item/2/mesh = ExtResource( 3 )
+item/2/mesh_transform = null
+item/2/shapes = [  ]
+item/2/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/3/name = "4"
+item/3/mesh = ExtResource( 4 )
+item/3/mesh_transform = null
+item/3/shapes = [  ]
+item/3/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/4/name = "5"
+item/4/mesh = ExtResource( 5 )
+item/4/mesh_transform = null
+item/4/shapes = [  ]
+item/4/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+__meta__ = {
+"_editor_source_scene": "res://prefabs/towers/MagicTower.tscn"
+}
