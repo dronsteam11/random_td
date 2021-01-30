@@ -22,7 +22,8 @@ func _process(delta):
 		_time_to_spawn = 0
 
 	for e in _list:
-		e.set_offset(e.get_offset() + 5 * delta)
+		
+		e.set_offset(e.get_offset() + e.speed * delta)
 	pass
 
 func create_enemy() -> void:

@@ -5,13 +5,15 @@
 [sub_resource type="CubeMesh" id=1]
 
 [node name="Enemy" type="PathFollow"]
+rotation_mode = 4
 script = ExtResource( 1 )
 
 [node name="Body" type="MeshInstance" parent="."]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 
 [node name="Header" type="MeshInstance" parent="."]
-transform = Transform( 0.5, -3.1665e-08, -2.98023e-08, 5.21541e-08, 0.5, 7.45058e-09, -7.45059e-08, 0, 0.5, -0.838975, 1.07194, 0.0310482 )
+transform = Transform( 0.2, -2.08616e-08, 2.98024e-08, 2.08616e-08, 0.2, 2.13163e-15, -2.98024e-08, 9.77002e-16, 0.2, 0.161025, 1.07194, 0.531048 )
 mesh = SubResource( 1 )
 material/0 = null

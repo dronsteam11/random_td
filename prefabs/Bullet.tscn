@@ -12,4 +12,4 @@ transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 1, 0 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 script = ExtResource( 1 )
-speed = 30.0
+speed = 10.0
