@@ -25,7 +25,7 @@ func _move_to_target(delta : float) -> void:
 		return
 
 	global_translate(dir.normalized() * distanceThisFrame)
-	look_at(_target.translation, Vector3.UP)
+	look_at(_target.global_transform.origin, Vector3.UP)
 
 func _hit_target():
 	if _target == null:
@@ -38,4 +38,4 @@ func _physics_process(delta):
 	_move_to_target(delta)
 
 func _destroy() -> void:
-	call_deferred("free")
+	call_deferred("queue_free")

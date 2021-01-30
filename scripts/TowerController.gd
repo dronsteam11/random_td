@@ -5,6 +5,7 @@ extends Spatial
 export (PackedScene) var bullet_prefab : PackedScene = preload("res://prefabs/Bullet.tscn")
 export var shoot_cooldown : float = 1.0
 export var shoot_damage : float = 10.0
+export var shoot_distance : float = 100.0
 var target : Enemy = null
 
 onready var _enemy_controller : EnemyController = get_node("/root/TestScene/EnemyPath")
@@ -40,8 +41,11 @@ func find_target() -> Enemy:
 		if min_distance > _current_dist:
 			min_distance = _current_dist
 			index = i
-		
-	return _enemy_controller.enemys_get()[index]
+	var new_target = _enemy_controller.enemys_get()[index]
+	
+	if self.global_transform.origin.distance_to(new_target.global_transform.origin) <= shoot_distance:
+		return new_target
+	return null
 	
 func shoot():
 	var bullet = bullet_prefab.instance()

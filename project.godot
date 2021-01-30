@@ -36,6 +36,11 @@ config/name="Random Td"
 run/main_scene="res://scenes/TestScene.tscn"
 config/icon="res://icon.png"
 
+[debug]
+
+settings/fps/force_fps=60
+settings/stdout/print_fps=true
+
 [gdnative]
 
 singletons=[  ]
@@ -44,7 +49,11 @@ singletons=[  ]
 
 quality/driver/driver_name="GLES2"
 quality/driver/fallback_to_gles2=true
+threads/thread_model=2
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+quality/directional_shadow/size=1024
+quality/shadow_atlas/size=1024
+quality/shadows/filter_mode=0
 quality/filters/msaa=1
 environment/default_environment="res://default_env.tres"

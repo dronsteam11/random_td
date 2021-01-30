@@ -6,7 +6,7 @@
 [ext_resource path="res://scripts/EnemyController.gd" type="Script" id=4]
 [ext_resource path="res://Spatial.tscn" type="PackedScene" id=5]
 
-[sub_resource type="Curve3D" id=3]
+[sub_resource type="Curve3D" id=1]
 _data = {
 "points": PoolVector3Array( 5, 0, 0, -5, 0, 0, -1, 0.5, 20, -4, 0, 11, 4, 0, -11, -26, 0.5, -12, -4, 0, -7, 4, 0, 7, 0, 0.5, -4, 4, 0, 0, -4, 0, 0, -1, 0.5, 20 ),
 "tilts": PoolRealArray( 0, 0, 0, 0 )
@@ -20,24 +20,20 @@ data = {
 }
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.685196, 0.728359, 0, -0.728359, 0.685196, 0, 13.708, 19.17 )
+transform = Transform( 1, 0, 0, 0, 0.685196, 0.728359, 0, -0.728359, 0.685196, 0, 11.708, 15.17 )
 current = true
 
 [node name="EnemyPath" type="Path" parent="."]
-curve = SubResource( 3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -4 )
+curve = SubResource( 1 )
 script = ExtResource( 4 )
 enemies = [ ExtResource( 1 ), ExtResource( 3 ) ]
 time_spawn = 1.5
 
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.866025, -2.18557e-08, 0.5, -0.5, -3.78552e-08, 0.866025, 0, -1, -4.37114e-08, -9, 27, 0 )
-shadow_enabled = true
-shadow_bias = 0.0
-directional_shadow_mode = 0
-directional_shadow_split_1 = 0.108
-directional_shadow_blend_splits = true
-directional_shadow_depth_range = 1
-directional_shadow_max_distance = 136.8
-
 [node name="MagicTower" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
 shoot_damage = 50.0
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.707107, -3.09086e-08, 0.707107, -0.707107, -3.09086e-08, 0.707107, 0, -1, -4.37114e-08, 0, 6, 0 )
+shadow_enabled = true
