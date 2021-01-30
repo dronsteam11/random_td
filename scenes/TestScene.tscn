@@ -4,7 +4,7 @@
 [ext_resource path="res://prefabs/towers/MagicTower.tscn" type="PackedScene" id=2]
 [ext_resource path="res://prefabs/enemies/SecondEnemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/EnemyController.gd" type="Script" id=4]
-[ext_resource path="res://Spatial.tscn" type="PackedScene" id=5]
+[ext_resource path="res://models/tile_library.tres" type="MeshLibrary" id=5]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -14,9 +14,17 @@ _data = {
 
 [node name="TestScene" type="Spatial"]
 
-[node name="GridMap" parent="." instance=ExtResource( 5 )]
+[node name="Level1" type="GridMap" parent="."]
+mesh_library = ExtResource( 5 )
+cell_size = Vector3( 4, 1, 4 )
+cell_octant_size = 1
+cell_center_y = false
 data = {
-"cells": PoolIntArray( 0, 0, 1048581, 1, 0, 6, 65533, 0, 1441798, 65534, 0, -1609564155, 65535, 0, 1048581, 0, 1, 655360, 1, 1, 1048576, 65534, 1, 1048576, 65535, 1, 655360, 0, 65533, 537919493, 1, 65533, 1048582, 65533, 65533, 655366, 65534, 65533, 1048581, 65535, 65533, 1048581, 0, 65534, 1441792, 1, 65534, 5, 65533, 65534, 655365, 65534, 65534, 0, 65535, 65534, 1441792, 0, 65535, 4, 1, 65535, 5, 65533, 65535, 655365, 65534, 65535, 655360, 65535, 65535, 4 )
+"cells": PoolIntArray( 0, 0, 1048581, 1, 0, 6, 65533, 0, 1441798, 65534, 0, 1048581, 65535, 0, 1048581, 0, 1, 655360, 1, 1, 1048576, 65534, 1, 1048576, 65535, 1, 655360, 0, 65533, 1048581, 1, 65533, 1048582, 65533, 65533, 655366, 65534, 65533, 1048581, 65535, 65533, 1048581, 0, 65534, 1441792, 1, 65534, 5, 65533, 65534, 655365, 65534, 65534, 0, 65535, 65534, 1441792, 0, 65535, 4, 1, 65535, 5, 65533, 65535, 655365, 65534, 65535, 655360, 65535, 65535, 4 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
 }
 
 [node name="Camera" type="Camera" parent="."]
@@ -31,7 +39,6 @@ enemies = [ ExtResource( 1 ), ExtResource( 3 ) ]
 time_spawn = 1.5
 
 [node name="MagicTower" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
 shoot_damage = 50.0
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
