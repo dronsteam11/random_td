@@ -14,9 +14,9 @@ _data = {
 
 [node name="TestScene" type="Spatial"]
 
-[node name="Spatial" parent="." instance=ExtResource( 5 )]
+[node name="GridMap" parent="." instance=ExtResource( 5 )]
 data = {
-"cells": PoolIntArray( 0, 0, 4, 1, 0, 4, 65534, 0, 4, 65535, 0, 4, 0, 1, 655360, 1, 1, 1048576, 65534, 1, 1048576, 65535, 1, 655360, 0, 65534, 1441792, 1, 65534, 2, 65534, 65534, 0, 65535, 65534, 1441792, 0, 65535, 4, 1, 65535, 1048576, 65534, 65535, 655360, 65535, 65535, 4 )
+"cells": PoolIntArray( 0, 0, 1048581, 1, 0, 6, 65533, 0, 1441798, 65534, 0, -1609564155, 65535, 0, 1048581, 0, 1, 655360, 1, 1, 1048576, 65534, 1, 1048576, 65535, 1, 655360, 0, 65533, 537919493, 1, 65533, 1048582, 65533, 65533, 655366, 65534, 65533, 1048581, 65535, 65533, 1048581, 0, 65534, 1441792, 1, 65534, 5, 65533, 65534, 655365, 65534, 65534, 0, 65535, 65534, 1441792, 0, 65535, 4, 1, 65535, 5, 65533, 65535, 655365, 65534, 65535, 655360, 65535, 65535, 4 )
 }
 
 [node name="Camera" type="Camera" parent="."]
@@ -31,7 +31,7 @@ enemies = [ ExtResource( 1 ), ExtResource( 3 ) ]
 time_spawn = 1.5
 
 [node name="MagicTower" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
 shoot_damage = 50.0
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]

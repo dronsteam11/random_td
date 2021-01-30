@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/TaleDoroga2.obj-0c901567b670cf9eb9597d78e54f632d.mesh"
+
+[deps]
+
+files=[ "res://.import/TaleDoroga2.obj-0c901567b670cf9eb9597d78e54f632d.mesh" ]
+
+source_file="res://models/tiles/D2/TaleDoroga2.obj"
+dest_files=[ "res://.import/TaleDoroga2.obj-0c901567b670cf9eb9597d78e54f632d.mesh", "res://.import/TaleDoroga2.obj-0c901567b670cf9eb9597d78e54f632d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
