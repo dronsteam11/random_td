@@ -17,7 +17,7 @@ func _move_to_target(delta : float) -> void:
 		_destroy()
 		return
 
-	var dir : Vector3 = _target.translation - global_transform.origin
+	var dir : Vector3 = _target.global_transform.origin - global_transform.origin
 	var distanceThisFrame : float = speed * delta
 
 	if dir.length() <= distanceThisFrame:
