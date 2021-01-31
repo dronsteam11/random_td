@@ -1,17 +1,42 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://prefabs/enemies/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://prefabs/towers/MagicTower.tscn" type="PackedScene" id=2]
 [ext_resource path="res://prefabs/enemies/SecondEnemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/EnemyController.gd" type="Script" id=4]
 [ext_resource path="res://models/tile_library.tres" type="MeshLibrary" id=5]
-[ext_resource path="res://grid.png" type="Texture" id=6]
+[ext_resource path="res://prefabs/Cell.tscn" type="PackedScene" id=7]
 
-[sub_resource type="Curve3D" id=1]
+[sub_resource type="GDScript" id=1]
+script/source = "extends Spatial
+
+var cells : Array = []
+var current_cell : Cell = null
+
+
+onready var camera = get_node(\"/root/TestScene/Camera\") as Camera
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	cells = get_children()
+	
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	
+	
+	pass
+"
+
+[sub_resource type="Curve3D" id=2]
 _data = {
 "points": PoolVector3Array( 1, 0, -1, -1, 0, 1, 5, 1, 2, 0.5, -0.3, 0.4, -0.5, 0.3, -0.4, -9, 1, 2, -1, 0, 1, 1, 0, -1, -9, 1, -9, -1, 0, -1, 1, 0, 1, 5, 1, -9, 1, 0, -1, -1, 0, 1, 5, 1, 2 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
+
+[sub_resource type="Environment" id=3]
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 0.11
 
 [node name="TestScene" type="Spatial"]
 
@@ -21,81 +46,62 @@ cell_size = Vector3( 4, 1, 4 )
 cell_octant_size = 1
 cell_center_y = false
 data = {
-"cells": PoolIntArray( 0, 0, 1048581, 1, 0, 6, 2, 0, 1441793, 65532, 0, 1441793, 65533, 0, 538312710, 65534, 0, 1048581, 65535, 0, 1048581, 0, 1, 655362, 1, 1, 1048576, 2, 1, 1441793, 65532, 1, 1048578, 65533, 1, 1441793, 65534, 1, 1048576, 65535, 1, 655360, 0, 65532, 1441793, 1, 65532, 1441793, 2, 65532, 1441793, 65532, 65532, 1441793, 65533, 65532, 1441793, 65534, 65532, 1441793, 65535, 65532, 1441794, 0, 65533, 1048581, 1, 65533, 1048582, 2, 65533, 1441793, 65532, 65533, 1441793, 65533, 65533, 655366, 65534, 65533, 1048581, 65535, 65533, 1048581, 0, 65534, 1048580, 1, 65534, 5, 2, 65534, 1441793, 65532, 65534, 1441793, 65533, 65534, 655365, 65534, 65534, 1441795, 65535, 65534, 1048580, 0, 65535, 4, 1, 65535, 5, 2, 65535, 1048578, 65532, 65535, 1441793, 65533, 65535, 655365, 65534, 65535, 1441795, 65535, 65535, 4 )
+"cells": PoolIntArray( 0, 0, 1048581, 1, 0, 6, 2, 0, 1441793, 65532, 0, 1441793, 65533, 0, 1441798, 65534, 0, 1048581, 65535, 0, 1048581, 0, 1, 655362, 1, 1, 1048576, 2, 1, 1441793, 65532, 1, 1048578, 65533, 1, 1441793, 65534, 1, 1048576, 65535, 1, 655360, 0, 65532, 1441793, 1, 65532, 1441793, 2, 65532, 1441793, 65532, 65532, 1441793, 65533, 65532, 1441793, 65534, 65532, 1441793, 65535, 65532, 1441794, 0, 65533, 1048581, 1, 65533, 1048582, 2, 65533, 1441793, 65532, 65533, 1441793, 65533, 65533, 655366, 65534, 65533, 1048581, 65535, 65533, 1048581, 0, 65534, 1048580, 1, 65534, 5, 2, 65534, 1441793, 3, 65534, 5, 65532, 65534, 1441793, 65533, 65534, 655365, 65534, 65534, 1441795, 65535, 65534, 1048580, 0, 65535, 4, 1, 65535, 5, 2, 65535, 1048578, 3, 65535, 5, 65532, 65535, 1441793, 65533, 65535, 655365, 65534, 65535, 1441795, 65535, 65535, 4 )
 }
 __meta__ = {
 "_editor_clip_": 0,
 "_editor_floor_": Vector3( 0, 0, 0 )
 }
 
+[node name="Grid" type="Spatial" parent="."]
+script = SubResource( 1 )
+
+[node name="Cell" parent="Grid" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2 )
+cell_type = 2
+is_empty = false
+
+[node name="Cell2" parent="Grid" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2 )
+
+[node name="Cell3" parent="Grid" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -2 )
+
+[node name="Cell4" parent="Grid" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6 )
+
+[node name="Cell5" parent="Grid" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6 )
+
+[node name="Cell6" parent="Grid" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6 )
+
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 11.708, 6.17 )
+transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 14.708, 12.17 )
 current = true
 
 [node name="EnemyPath" type="Path" parent="."]
-curve = SubResource( 1 )
+curve = SubResource( 2 )
 script = ExtResource( 4 )
 enemies = [ ExtResource( 1 ), ExtResource( 3 ) ]
 time_spawn = 1.5
 
-[node name="MagicTower" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2 )
-shoot_damage = 10.0
-shoot_distance = 10.0
-
-[node name="MagicTower2" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6 )
-shoot_damage = 10.0
-shoot_distance = 10.0
-
-[node name="MagicTower3" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2 )
-shoot_damage = 10.0
-shoot_distance = 10.0
-
-[node name="MagicTower4" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6 )
-shoot_damage = 10.0
-shoot_distance = 10.0
-
-[node name="MagicTower5" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -2 )
-shoot_damage = 10.0
-shoot_distance = 10.0
-
-[node name="MagicTower6" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6 )
-shoot_damage = 10.0
-shoot_distance = 10.0
-
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.707107, -3.09086e-08, 0.707107, -0.707107, -3.09086e-08, 0.707107, 0, -1, -4.37114e-08, 0, 6, 0 )
+light_energy = 1.51
+light_bake_mode = 2
 shadow_enabled = true
 shadow_bias = 0.0
+directional_shadow_mode = 0
 directional_shadow_normal_bias = 1.0
+directional_shadow_depth_range = 1
 
-[node name="Grid" type="Spatial" parent="."]
+[node name="MagicTower" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2 )
+material/0 = null
+shoot_distance = 10.0
 
-[node name="Cell" type="Sprite3D" parent="Grid"]
-transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 2, 1, -2 )
-texture = ExtResource( 6 )
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
 
-[node name="Cell2" type="Sprite3D" parent="Grid"]
-transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, -2, 1, -2 )
-texture = ExtResource( 6 )
-
-[node name="Cell3" type="Sprite3D" parent="Grid"]
-transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, -6, 1, -2 )
-texture = ExtResource( 6 )
-
-[node name="Cell4" type="Sprite3D" parent="Grid"]
-transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 2, 1, -6 )
-texture = ExtResource( 6 )
-
-[node name="Cell5" type="Sprite3D" parent="Grid"]
-transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, -2, 1, -6 )
-texture = ExtResource( 6 )
-
-[node name="Cell6" type="Sprite3D" parent="Grid"]
-transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, -6, 1, -6 )
-texture = ExtResource( 6 )
+[node name="GlobalResource" type="Node" parent="."]
