@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/CellMagicTower.png-81d0993290aa04469363c934f7c1e876.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://models/grid/CellMagicTower.png"
+dest_files=[ "res://.import/CellMagicTower.png-81d0993290aa04469363c934f7c1e876.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=2
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=true
+flags/anisotropic=true
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
