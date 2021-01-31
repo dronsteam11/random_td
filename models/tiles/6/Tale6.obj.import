@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Tale6.obj-72a9efdd2abc47f5307c8fb25e91b9f1.mesh"
+
+[deps]
+
+files=[ "res://.import/Tale6.obj-72a9efdd2abc47f5307c8fb25e91b9f1.mesh" ]
+
+source_file="res://models/tiles/6/Tale6.obj"
+dest_files=[ "res://.import/Tale6.obj-72a9efdd2abc47f5307c8fb25e91b9f1.mesh", "res://.import/Tale6.obj-72a9efdd2abc47f5307c8fb25e91b9f1.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

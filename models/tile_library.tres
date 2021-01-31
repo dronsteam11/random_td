@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" load_steps=8 format=2]
+[gd_resource type="MeshLibrary" load_steps=11 format=2]
 
 [ext_resource path="res://models/tiles/1/Tale1.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://models/tiles/2/Tale2.obj" type="ArrayMesh" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://models/tiles/5/Tale5.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://models/tiles/D1/TaleDoroga1.obj" type="ArrayMesh" id=6]
 [ext_resource path="res://models/tiles/D2/TaleDoroga2.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://models/tiles/8/Tale8.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://models/tiles/6/Tale6.obj" type="ArrayMesh" id=9]
+[ext_resource path="res://models/tiles/9/Tale9.obj" type="ArrayMesh" id=10]
 
 [resource]
 item/0/name = "Forest1"
@@ -44,6 +47,21 @@ item/6/mesh = ExtResource( 7 )
 item/6/mesh_transform = null
 item/6/shapes = [  ]
 item/6/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/7/name = "Forest4"
+item/7/mesh = ExtResource( 8 )
+item/7/mesh_transform = null
+item/7/shapes = [  ]
+item/7/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/8/name = "Forest5"
+item/8/mesh = ExtResource( 9 )
+item/8/mesh_transform = null
+item/8/shapes = [  ]
+item/8/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/9/name = "Forest7"
+item/9/mesh = ExtResource( 10 )
+item/9/mesh_transform = null
+item/9/shapes = [  ]
+item/9/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 __meta__ = {
 "_editor_source_scene": "res://prefabs/towers/MagicTower.tscn"
 }
