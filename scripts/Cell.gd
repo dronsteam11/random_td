@@ -30,11 +30,12 @@ func set_cell_type(new_type) -> void:
 			_sprite.texture = _cell_random_texture
 
 func _on_Area_input_event(camera, event, click_position, click_normal, shape_idx):
-	if event is InputEventMouseButton:
+	if event is InputEventScreenTouch:
+		print("asd")
 		if event.pressed == true:
 			_sprite.modulate = Color.green
 		else:
 			_sprite.modulate = Color.white
-	else:
+	elif event is InputEventScreenDrag:
 		_sprite.modulate = _base_color
 	pass # Replace with function body.

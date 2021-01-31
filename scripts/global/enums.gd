@@ -6,3 +6,9 @@ enum CellType {
 	Magic,
 	Strength
 }
+
+enum ControllState {
+	None,
+	Build,
+	Upgrade
+}
