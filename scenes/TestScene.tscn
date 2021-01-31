@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://prefabs/enemies/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://prefabs/towers/MagicTower.tscn" type="PackedScene" id=2]
 [ext_resource path="res://prefabs/enemies/SecondEnemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/EnemyController.gd" type="Script" id=4]
 [ext_resource path="res://models/tile_library.tres" type="MeshLibrary" id=5]
+[ext_resource path="res://scripts/CameraController.gd" type="Script" id=6]
 [ext_resource path="res://prefabs/Cell.tscn" type="PackedScene" id=7]
 
 [sub_resource type="GDScript" id=1]
@@ -13,12 +14,13 @@ script/source = "extends Spatial
 var cells : Array = []
 var current_cell : Cell = null
 
-
+onready var level = get_node(\"/root/TestScene/Level1\")
+	
 onready var camera = get_node(\"/root/TestScene/Camera\") as Camera
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	cells = get_children()
-	
+	print(len(level.get_used_cells()))
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,7 +48,7 @@ cell_size = Vector3( 4, 1, 4 )
 cell_octant_size = 1
 cell_center_y = false
 data = {
-"cells": PoolIntArray( 0, 0, 1048581, 1, 0, 6, 2, 0, 1441793, 65532, 0, 1441793, 65533, 0, 1441798, 65534, 0, 1048581, 65535, 0, 1048581, 0, 1, 655362, 1, 1, 1048576, 2, 1, 1441793, 65532, 1, 1048578, 65533, 1, 1441793, 65534, 1, 1048576, 65535, 1, 655360, 0, 65532, 1441793, 1, 65532, 1441793, 2, 65532, 1441793, 65532, 65532, 1441793, 65533, 65532, 1441793, 65534, 65532, 1441793, 65535, 65532, 1441794, 0, 65533, 1048581, 1, 65533, 1048582, 2, 65533, 1441793, 65532, 65533, 1441793, 65533, 65533, 655366, 65534, 65533, 1048581, 65535, 65533, 1048581, 0, 65534, 1048580, 1, 65534, 5, 2, 65534, 1441793, 3, 65534, 5, 65532, 65534, 1441793, 65533, 65534, 655365, 65534, 65534, 1441795, 65535, 65534, 1048580, 0, 65535, 4, 1, 65535, 5, 2, 65535, 1048578, 3, 65535, 5, 65532, 65535, 1441793, 65533, 65535, 655365, 65534, 65535, 1441795, 65535, 65535, 4 )
+"cells": PoolIntArray( 0, 0, 1048581, 1, 0, 6, 2, 0, 1441793, 3, 0, 1048577, 65531, 0, 1048577, 65532, 0, 1441793, 65533, 0, 1441798, 65534, 0, 1048581, 65535, 0, 1048581, 0, 1, 655362, 1, 1, 1048576, 2, 1, 1441793, 3, 1, -1609564159, 65531, 1, 1048577, 65532, 1, 1048578, 65533, 1, 1441793, 65534, 1, -1609564160, 65535, 1, 655360, 0, 2, 1048577, 1, 2, 1048577, 2, 2, 1048577, 3, 2, 1048577, 65531, 2, 1048577, 65532, 2, 1048577, 65533, 2, 1048577, 65534, 2, 1048577, 65535, 2, 1048577, 0, 65531, 1048577, 1, 65531, 1048577, 2, 65531, 1048577, 3, 65531, 1048577, 65531, 65531, 1048577, 65532, 65531, 1048577, 65533, 65531, 1048577, 65534, 65531, 1048577, 65535, 65531, 1048577, 0, 65532, 1441793, 1, 65532, 1441793, 2, 65532, 1441793, 3, 65532, 1048577, 65531, 65532, 1048577, 65532, 65532, 1441793, 65533, 65532, 1441793, 65534, 65532, 1441793, 65535, 65532, 1441794, 0, 65533, 1048581, 1, 65533, 1048582, 2, 65533, 1441793, 3, 65533, 1048577, 65531, 65533, 1048577, 65532, 65533, 1441793, 65533, 65533, 655366, 65534, 65533, 1048581, 65535, 65533, 1048581, 0, 65534, 1048580, 1, 65534, 5, 2, 65534, 1441793, 3, 65534, 1048577, 65531, 65534, 1048577, 65532, 65534, 1441793, 65533, 65534, 655365, 65534, 65534, 1441795, 65535, 65534, 1048580, 0, 65535, 4, 1, 65535, 5, 2, 65535, 1048578, 3, 65535, 1048577, 65531, 65535, 1048577, 65532, 65535, 1441793, 65533, 65535, 655365, 65534, 65535, 1441795, 65535, 65535, 4 )
 }
 __meta__ = {
 "_editor_clip_": 0,
@@ -63,6 +65,7 @@ is_empty = false
 
 [node name="Cell2" parent="Grid" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2 )
+cell_type = 2
 
 [node name="Cell3" parent="Grid" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -2 )
@@ -77,8 +80,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 14.708, 12.17 )
+transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, -2, 14.708, 7.17 )
 current = true
+script = ExtResource( 6 )
 
 [node name="EnemyPath" type="Path" parent="."]
 curve = SubResource( 2 )
@@ -109,4 +113,63 @@ shoot_distance = 10.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
 
-[node name="GlobalResource" type="Node" parent="."]
+[node name="GUI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSplitContainer" type="HSplitContainer" parent="GUI"]
+anchor_left = 0.5
+anchor_top = 0.85
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -100.0
+collapsed = true
+dragger_visibility = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item1" type="Button" parent="GUI/VSplitContainer"]
+margin_right = 100.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 100, 0 )
+text = "Build"
+
+[node name="Item2" type="Panel" parent="GUI/VSplitContainer"]
+margin_left = 100.0
+margin_right = 200.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 100, 0 )
+
+[node name="Label" type="Label" parent="GUI/VSplitContainer/Item2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -15.0
+margin_right = 20.0
+margin_bottom = 16.0
+text = "Asd
+"
+align = 1
+valign = 1
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="GUI"]
+visible = false
+anchor_top = 0.85
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.269775
+margin_bottom = 0.0501709
+__meta__ = {
+"_edit_use_anchors_": false
+}
