@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/MagicTowerKristalT1_1.obj-661a9fdaa7397ed4e0d2f301531cfe3a.mesh"
+
+[deps]
+
+files=[ "res://.import/MagicTowerKristalT1_1.obj-661a9fdaa7397ed4e0d2f301531cfe3a.mesh" ]
+
+source_file="res://models/towers/magic/level1/Kristal/MagicTowerKristalT1_1.obj"
+dest_files=[ "res://.import/MagicTowerKristalT1_1.obj-661a9fdaa7397ed4e0d2f301531cfe3a.mesh", "res://.import/MagicTowerKristalT1_1.obj-661a9fdaa7397ed4e0d2f301531cfe3a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

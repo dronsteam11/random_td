@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" load_steps=11 format=2]
+[gd_resource type="MeshLibrary" load_steps=15 format=2]
 
 [ext_resource path="res://models/tiles/1/Tale1.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://models/tiles/2/Tale2.obj" type="ArrayMesh" id=2]
@@ -10,6 +10,10 @@
 [ext_resource path="res://models/tiles/8/Tale8.obj" type="ArrayMesh" id=8]
 [ext_resource path="res://models/tiles/6/Tale6.obj" type="ArrayMesh" id=9]
 [ext_resource path="res://models/tiles/9/Tale9.obj" type="ArrayMesh" id=10]
+[ext_resource path="res://models/tiles/Bridge1/Bridge1.obj" type="ArrayMesh" id=11]
+[ext_resource path="res://models/tiles/River1/River1.obj" type="ArrayMesh" id=12]
+[ext_resource path="res://models/tiles/River2/River2.obj" type="ArrayMesh" id=13]
+[ext_resource path="res://models/tiles/River3/River3.obj" type="ArrayMesh" id=14]
 
 [resource]
 item/0/name = "Forest1"
@@ -62,6 +66,26 @@ item/9/mesh = ExtResource( 10 )
 item/9/mesh_transform = null
 item/9/shapes = [  ]
 item/9/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/10/name = "Bridge1"
+item/10/mesh = ExtResource( 11 )
+item/10/mesh_transform = null
+item/10/shapes = [  ]
+item/10/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/11/name = "River1"
+item/11/mesh = ExtResource( 12 )
+item/11/mesh_transform = null
+item/11/shapes = [  ]
+item/11/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/12/name = "River2"
+item/12/mesh = ExtResource( 13 )
+item/12/mesh_transform = null
+item/12/shapes = [  ]
+item/12/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+item/13/name = "River3"
+item/13/mesh = ExtResource( 14 )
+item/13/mesh_transform = null
+item/13/shapes = [  ]
+item/13/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 __meta__ = {
 "_editor_source_scene": "res://prefabs/towers/MagicTower.tscn"
 }

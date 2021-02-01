@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/STRR_02.obj-e8ced1a22f5b4353def64282c2b0fca9.mesh"
+
+[deps]
+
+files=[ "res://.import/STRR_02.obj-e8ced1a22f5b4353def64282c2b0fca9.mesh" ]
+
+source_file="res://models/towers/STR_02/STRR_02.obj"
+dest_files=[ "res://.import/STRR_02.obj-e8ced1a22f5b4353def64282c2b0fca9.mesh", "res://.import/STRR_02.obj-e8ced1a22f5b4353def64282c2b0fca9.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

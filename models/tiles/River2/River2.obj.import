@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/River2.obj-7983dfa143dbc94b85c8b7516796919e.mesh"
+
+[deps]
+
+files=[ "res://.import/River2.obj-7983dfa143dbc94b85c8b7516796919e.mesh" ]
+
+source_file="res://models/tiles/River2/River2.obj"
+dest_files=[ "res://.import/River2.obj-7983dfa143dbc94b85c8b7516796919e.mesh", "res://.import/River2.obj-7983dfa143dbc94b85c8b7516796919e.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

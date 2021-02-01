@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/MagicTowerT1_1.png-f048a4caa926105940a3ac0e1d1a57c3.s3tc.stex"
-path.etc="res://.import/MagicTowerT1_1.png-f048a4caa926105940a3ac0e1d1a57c3.etc.stex"
+path.s3tc="res://.import/STRR_01.png-b5ba8d8ba2097036a215bd01e717d4f1.s3tc.stex"
+path.etc="res://.import/STRR_01.png-b5ba8d8ba2097036a215bd01e717d4f1.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://models/towers/magic/MagicTowerT1_1.png"
-dest_files=[ "res://.import/MagicTowerT1_1.png-f048a4caa926105940a3ac0e1d1a57c3.s3tc.stex", "res://.import/MagicTowerT1_1.png-f048a4caa926105940a3ac0e1d1a57c3.etc.stex" ]
+source_file="res://models/towers/STR_01/STRR_01.png"
+dest_files=[ "res://.import/STRR_01.png-b5ba8d8ba2097036a215bd01e717d4f1.s3tc.stex", "res://.import/STRR_01.png-b5ba8d8ba2097036a215bd01e717d4f1.etc.stex" ]
 
 [params]
 

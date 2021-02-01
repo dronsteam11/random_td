@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/AGI.obj-8111b1933b5b3849a2e3c3353f4afcb2.mesh"
+
+[deps]
+
+files=[ "res://.import/AGI.obj-8111b1933b5b3849a2e3c3353f4afcb2.mesh" ]
+
+source_file="res://models/towers/AGIL/AGI.obj"
+dest_files=[ "res://.import/AGI.obj-8111b1933b5b3849a2e3c3353f4afcb2.mesh", "res://.import/AGI.obj-8111b1933b5b3849a2e3c3353f4afcb2.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
