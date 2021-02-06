@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/TowerController.gd" type="Script" id=1]
 [ext_resource path="res://models/towers/Magic_01/Magic_01.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://models/towers/Magic_01/Magic_01.png" type="Texture" id=3]
-[ext_resource path="res://models/towers/Magic_02/Magic_02.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://models/towers/magic_glass/MagicTowerGlass1_1.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://models/materials/magic_tower_material.tres" type="Material" id=5]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_transparent = true
@@ -14,9 +15,11 @@ albedo_texture = ExtResource( 3 )
 [node name="MagicTower" type="MeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 mesh = ExtResource( 4 )
-material/0 = null
+material/0 = ExtResource( 5 )
 script = ExtResource( 1 )
+type = 1
 
 [node name="Cristal" type="MeshInstance" parent="."]
+visible = false
 mesh = ExtResource( 2 )
 material/0 = SubResource( 1 )

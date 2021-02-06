@@ -1,11 +1,14 @@
 extends Spatial
 
-
-
 export (PackedScene) var bullet_prefab : PackedScene = preload("res://prefabs/Bullet.tscn")
+
 export var shoot_cooldown : float = 1.0
 export var shoot_damage : float = 10.0
 export var shoot_distance : float = 100.0
+export var shoot_speed : float = 10.0
+
+export(Enums.CellType) var type
+
 var target : Enemy = null
 
 onready var _enemy_controller : EnemyController = get_node("/root/TestScene/EnemyPath")
@@ -13,6 +16,7 @@ var _current_cooldown : float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -48,8 +52,8 @@ func find_target() -> Enemy:
 	return null
 	
 func shoot():
-	var bullet = bullet_prefab.instance()
-	bullet.set_target(target, shoot_damage)
+	var bullet : Bullet = bullet_prefab.instance() as Bullet
+	bullet.set_target(target, shoot_damage, shoot_speed)
 	add_child(bullet)
 	pass
 

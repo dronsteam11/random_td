@@ -8,31 +8,44 @@ const _cell_random_texture : Texture = preload("res://models/grid/CellRandomTowe
 
 export (Enums.CellType) var cell_type  = Enums.CellType.Random
 
-export var is_empty : bool = true
+var is_empty : bool = true
 
 onready var _sprite = get_node("Sprite")
 
+onready var _eventer = get_node("/root/TestScene/LevelObserver")
+
 var _base_color = Color.white
+var _tower_node_path : NodePath
 
 func _ready():
-	set_cell_type(cell_type) 
+	_set_cell_type(cell_type) 
 	pass
 
-func set_cell_type(new_type) -> void:
+func set_tower(tower) -> void:
+	add_child(tower)
+	
+	_tower_node_path = tower.get_path()
+	tower.translation.y = 0.5
+	
+	_set_cell_type(tower.type)
+	is_empty = false
+	pass
+	
+func _set_cell_type(new_type) -> void:
 	match new_type:
 		Enums.CellType.Magic:
 			_sprite.texture = _cell_magic_texture
 		Enums.CellType.Strength:
 			_sprite.texture = _cell_strength_texture
 		Enums.CellType.Agile:
-			_sprite.texture = _cell_random_texture
+			_sprite.texture = _cell_agile_texture
 		_:
 			_sprite.texture = _cell_random_texture
 
 func _on_Area_input_event(camera, event, click_position, click_normal, shape_idx):
 	if event is InputEventScreenTouch:
-		print("asd")
 		if event.pressed == true:
+			_eventer.select_cell(self)
 			_sprite.modulate = Color.green
 		else:
 			_sprite.modulate = Color.white

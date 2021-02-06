@@ -2,23 +2,21 @@ extends Spatial
 
 class_name Bullet
 
-export var speed : float = 10.0
-
+var _speed : float = 10.0
 var _damage : float = 0
 var _target : Enemy = null
 var _last_pos : Vector3 = Vector3.ZERO
 
-func set_target(target : Enemy, damage : float) -> void:
+func set_target(target : Enemy, damage : float, speed : float) -> void:
 	_target = target
 	_damage = damage
+	_speed = speed
 	pass
 
 func _move_to_target(delta : float) -> void:
 	
-	if !is_inside_tree(): return
-	
 	var dir : Vector3 = _last_pos - global_transform.origin
-	var distanceThisFrame : float = speed * delta
+	var distanceThisFrame : float = _speed * delta
 
 	if dir.length() <= distanceThisFrame:
 		_hit_target()

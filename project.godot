@@ -28,18 +28,27 @@ _global_script_classes=[ {
 "class": "EnemyController",
 "language": "GDScript",
 "path": "res://scripts/EnemyController.gd"
+}, {
+"base": "Node",
+"class": "LevelEventListener",
+"language": "GDScript",
+"path": "res://scripts/LevelEventListener.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
 "Cell": "",
 "Enemy": "",
-"EnemyController": ""
+"EnemyController": "",
+"LevelEventListener": ""
 }
 
 [application]
 
 config/name="Random Td"
 run/main_scene="res://scenes/TestScene.tscn"
+run/low_processor_mode=true
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://icon.png"
 
 [autoload]
@@ -52,6 +61,7 @@ settings/fps/force_fps=60
 
 [display]
 
+window/size/width=400
 window/vsync/use_vsync=false
 
 [gdnative]
@@ -67,6 +77,7 @@ pointing/emulate_mouse_from_touch=false
 
 quality/driver/driver_name="GLES2"
 quality/driver/fallback_to_gles2=true
+threads/thread_model=2
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 quality/directional_shadow/size=2048

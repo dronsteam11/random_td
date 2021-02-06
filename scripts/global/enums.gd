@@ -1,10 +1,10 @@
 extends Node
 
 enum CellType {
-	Agile,
-	Random,
-	Magic,
-	Strength
+	Agile = 0,
+	Magic = 1,
+	Strength = 2,
+	Random = 3,
 }
 
 enum ControllState {

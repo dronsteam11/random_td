@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://prefabs/enemies/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://prefabs/towers/MagicTower.tscn" type="PackedScene" id=2]
@@ -7,28 +7,20 @@
 [ext_resource path="res://models/tile_library.tres" type="MeshLibrary" id=5]
 [ext_resource path="res://scripts/CameraController.gd" type="Script" id=6]
 [ext_resource path="res://prefabs/Cell.tscn" type="PackedScene" id=7]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends Spatial
-
-var cells : Array = []
-var current_cell : Cell = null
-
-onready var level = get_node(\"/root/TestScene/Level1\")
-	
-onready var camera = get_node(\"/root/TestScene/Camera\") as Camera
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	cells = get_children()
-	print(len(level.get_used_cells()))
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	
-	
-	pass
-"
+[ext_resource path="res://scripts/GUI/FPSLabel.gd" type="Script" id=8]
+[ext_resource path="res://scripts/LevelEventListener.gd" type="Script" id=9]
+[ext_resource path="res://prefabs/towers/AgileTower.tscn" type="PackedScene" id=10]
+[ext_resource path="res://prefabs/towers/StrengthTower.tscn" type="PackedScene" id=11]
+[ext_resource path="res://fonts/mistral.tres" type="DynamicFont" id=12]
+[ext_resource path="res://scripts/GridController.gd" type="Script" id=13]
+[ext_resource path="res://gui_elements/Ramka.png" type="Texture" id=14]
+[ext_resource path="res://gui_elements/STR.png" type="Texture" id=15]
+[ext_resource path="res://gui_elements/Magic.png" type="Texture" id=16]
+[ext_resource path="res://gui_elements/AGIL.png" type="Texture" id=17]
+[ext_resource path="res://gui_elements/PodRamka.png" type="Texture" id=18]
+[ext_resource path="res://gui_elements/Right.png" type="Texture" id=19]
+[ext_resource path="res://gui_elements/Left.png" type="Texture" id=20]
+[ext_resource path="res://gui_elements/RandomBox_Lvl1.png" type="Texture" id=21]
 
 [sub_resource type="Curve3D" id=2]
 _data = {
@@ -36,11 +28,17 @@ _data = {
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
 
-[sub_resource type="Environment" id=3]
+[sub_resource type="ProceduralSky" id=3]
+ground_energy = 2.21
+sun_latitude = 7.07
+
+[sub_resource type="Environment" id=4]
+background_mode = 2
+background_sky = SubResource( 3 )
 ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_energy = 0.0
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=5]
 extents = Vector3( 18, 1, 16 )
 
 [node name="TestScene" type="Spatial"]
@@ -51,7 +49,7 @@ cell_size = Vector3( 4, 1, 4 )
 cell_octant_size = 1
 cell_center_y = false
 data = {
-"cells": PoolIntArray( 0, 0, 1048581, 1, 0, 6, 2, 0, 8, 3, 0, 1048577, 65531, 0, 1441792, 65532, 0, 655361, 65533, 0, 1441798, 65534, 0, 1048581, 65535, 0, 1048581, 0, 1, 655362, 1, 1, 1048576, 2, 1, 1441793, 3, 1, 1048577, 65531, 1, 1048577, 65532, 1, 1048578, 65533, 1, 1441793, 65534, 1, 1441799, 65535, 1, 655360, 0, 2, 1048577, 1, 2, 1048577, 2, 2, 1048577, 3, 2, 1048577, 65531, 2, 1048577, 65532, 2, 1048577, 65533, 2, 1048577, 65534, 2, 1048577, 65535, 2, 1048577, 0, 65531, 1048577, 1, 65531, 1048577, 2, 65531, 1048577, 3, 65531, 1048577, 65531, 65531, 1048577, 65532, 65531, 1048577, 65533, 65531, 1048577, 65534, 65531, 1048577, 65535, 65531, 1048577, 0, 65532, 655368, 1, 65532, 1441793, 2, 65532, 1048586, 3, 65532, 1048577, 65531, 65532, 1048577, 65532, 65532, 1441793, 65533, 65532, 1441793, 65534, 65532, 655368, 65535, 65532, 1441794, 0, 65533, 1048581, 1, 65533, 1048582, 2, 65533, 1048588, 3, 65533, 1048577, 65531, 65533, 1048577, 65532, 65533, 1441793, 65533, 65533, 655366, 65534, 65533, 1048581, 65535, 65533, 1048581, 0, 65534, 1048580, 1, 65534, 5, 2, 65534, 1441805, 3, 65534, 1048577, 65531, 65534, 1048577, 65532, 65534, 1441801, 65533, 65534, 655365, 65534, 65534, 1441795, 65535, 65534, 1048580, 0, 65535, 4, 1, 65535, 5, 2, 65535, 1048586, 3, 65535, 1048581, 65531, 65535, 9, 65532, 65535, 0, 65533, 65535, 655365, 65534, 65535, 1441795, 65535, 65535, 4 )
+"cells": PoolIntArray( 0, 0, 1048581, 1, 0, 6, 2, 0, 8, 3, 0, 1048577, 65531, 0, 1441792, 65532, 0, 655361, 65533, 0, 1441798, 65534, 0, 1048581, 65535, 0, 1048581, 0, 1, 655362, 1, 1, 1048576, 2, 1, 538312705, 3, 1, 1048577, 65531, 1, 1048577, 65532, 1, 1048578, 65533, 1, 1441793, 65534, 1, 1441799, 65535, 1, 655360, 0, 2, 1048577, 1, 2, 1048577, 2, 2, 1048577, 3, 2, 1048577, 65531, 2, 1048577, 65532, 2, 1048577, 65533, 2, 1048577, 65534, 2, 1048577, 65535, 2, 1048577, 0, 65531, 1048577, 1, 65531, 1048577, 2, 65531, 1048577, 3, 65531, 1048577, 65531, 65531, 1048577, 65532, 65531, 1048577, 65533, 65531, 1048577, 65534, 65531, 1048577, 65535, 65531, 1048577, 0, 65532, 655368, 1, 65532, 1441793, 2, 65532, 1048586, 3, 65532, 1048577, 65531, 65532, 1048577, 65532, 65532, 1441793, 65533, 65532, 538312705, 65534, 65532, 655368, 65535, 65532, 1441794, 0, 65533, 1048581, 1, 65533, 1048582, 2, 65533, 1048588, 3, 65533, 1048577, 65531, 65533, 1048577, 65532, 65533, 1441793, 65533, 65533, 655366, 65534, 65533, 1048581, 65535, 65533, 1048581, 0, 65534, 1048580, 1, 65534, 5, 2, 65534, 1441805, 3, 65534, 1048577, 65531, 65534, 1048577, 65532, 65534, 1441801, 65533, 65534, 655365, 65534, 65534, 1441795, 65535, 65534, 1048580, 0, 65535, 4, 1, 65535, 5, 2, 65535, 1048586, 3, 65535, 1048581, 65531, 65535, 9, 65532, 65535, 0, 65533, 65535, 655365, 65534, 65535, 1441795, 65535, 65535, 4 )
 }
 __meta__ = {
 "_editor_clip_": 0,
@@ -59,20 +57,35 @@ __meta__ = {
 }
 
 [node name="Grid" type="Spatial" parent="."]
-script = SubResource( 1 )
+script = ExtResource( 13 )
 
 [node name="Cell" parent="Grid" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2 )
 cell_type = 2
-is_empty = false
+
+[node name="MagicTower" parent="Grid/Cell" instance=ExtResource( 2 )]
+shoot_distance = 10.0
+shoot_speed = 15.0
 
 [node name="Cell2" parent="Grid" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2 )
-cell_type = 2
-is_empty = false
+
+[node name="StrengthTower" parent="Grid/Cell2" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+shoot_cooldown = 2.0
+shoot_damage = 30.0
+shoot_distance = 10.0
 
 [node name="Cell3" parent="Grid" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -2 )
+cell_type = 0
+
+[node name="AgilTower" parent="Grid/Cell3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+shoot_cooldown = 0.5
+shoot_damage = 5.0
+shoot_distance = 10.0
+shoot_speed = 20.0
 
 [node name="Cell4" parent="Grid" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6 )
@@ -101,16 +114,12 @@ light_bake_mode = 0
 shadow_enabled = true
 directional_shadow_normal_bias = 1.0
 
-[node name="MagicTower" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -2 )
-shoot_distance = 10.0
-
-[node name="MagicTower2" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -2 )
-shoot_distance = 10.0
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 3 )
+environment = SubResource( 4 )
+
+[node name="CameraArea" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1 )
+shape = SubResource( 5 )
 
 [node name="GUI" type="Control" parent="."]
 anchor_right = 1.0
@@ -120,31 +129,210 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VSplitContainer" type="HSplitContainer" parent="GUI"]
+[node name="Panel" type="Panel" parent="GUI"]
+visible = false
+anchor_top = 0.85
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.269775
+margin_bottom = 0.0501709
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FPSLabel" type="Label" parent="GUI"]
+margin_right = 40.0
+margin_bottom = 14.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bottom" type="MarginContainer" parent="GUI"]
+anchor_top = 0.669
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 3.05176e-05
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuContainer" type="NinePatchRect" parent="GUI/Bottom"]
+margin_right = 400.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 400, 200 )
+texture = ExtResource( 14 )
+
+[node name="TopCounter" type="Container" parent="GUI/Bottom/MenuContainer"]
+anchor_left = 0.2975
+anchor_top = 0.155
+anchor_right = 0.7025
+anchor_bottom = 0.26
+margin_bottom = -3.8147e-06
+size_flags_horizontal = 15
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="GUI/Bottom/MenuContainer/TopCounter"]
+rect_min_size = Vector2( 20, 20 )
+texture = ExtResource( 17 )
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Label2" type="Label" parent="GUI/Bottom/MenuContainer/TopCounter/NinePatchRect2"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -10.0
+margin_top = -20.0
+margin_right = 10.0
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1
+"
+align = 1
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="GUI/Bottom/MenuContainer/TopCounter"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -10.0
+rect_min_size = Vector2( 20, 20 )
+texture = ExtResource( 16 )
+
+[node name="Label3" type="Label" parent="GUI/Bottom/MenuContainer/TopCounter/NinePatchRect3"]
+margin_top = -20.0
+margin_right = 20.0
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1
+"
+align = 1
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="GUI/Bottom/MenuContainer/TopCounter"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -20.0
+rect_min_size = Vector2( 20, 20 )
+texture = ExtResource( 15 )
+
+[node name="Label" type="Label" parent="GUI/Bottom/MenuContainer/TopCounter/NinePatchRect"]
+margin_top = -20.0
+margin_right = 20.0
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1
+"
+align = 1
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="NinePatchRect" parent="GUI/Bottom/MenuContainer"]
+show_behind_parent = true
+anchor_top = 0.315
+anchor_right = 1.0
+anchor_bottom = 1.065
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MarginContainer" type="Container" parent="GUI/Bottom/MenuContainer/BG"]
+anchor_left = 0.04
+anchor_top = 0.0333333
+anchor_right = 0.96
+anchor_bottom = 0.8
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LeftArrow" type="NinePatchRect" parent="GUI/Bottom/MenuContainer/BG/MarginContainer"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -20.0
+rect_min_size = Vector2( 40, 40 )
+texture = ExtResource( 19 )
+
+[node name="RigthArrow" type="NinePatchRect" parent="GUI/Bottom/MenuContainer/BG/MarginContainer"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = -20.0
+rect_min_size = Vector2( 40, 40 )
+texture = ExtResource( 20 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GUI/Bottom/MenuContainer/BG/MarginContainer"]
+anchor_left = 0.129
+anchor_top = 0.5
+anchor_right = 0.129
+anchor_bottom = 0.5
+margin_top = -35.0
+margin_right = 270.0
+margin_bottom = 35.0
+scroll_vertical_enabled = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Bottom/MenuContainer/BG/MarginContainer/ScrollContainer"]
+margin_right = 218.0
+margin_bottom = 70.0
+
+[node name="Item1" type="NinePatchRect" parent="GUI/Bottom/MenuContainer/BG/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 21 )
+
+[node name="Item2" type="NinePatchRect" parent="GUI/Bottom/MenuContainer/BG/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_left = 74.0
+margin_right = 144.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 21 )
+
+[node name="Item3" type="NinePatchRect" parent="GUI/Bottom/MenuContainer/BG/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_left = 148.0
+margin_right = 218.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 21 )
+
+[node name="VSplitContainer" type="HSplitContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.85
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -100.0
+margin_right = 100.0
 collapsed = true
 dragger_visibility = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BuildButton" type="Button" parent="GUI/VSplitContainer"]
+[node name="BuildButton" type="Button" parent="VSplitContainer"]
 margin_right = 100.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 100, 0 )
-text = "Build"
+custom_fonts/font = ExtResource( 12 )
+text = "Строить 1"
 
-[node name="Item2" type="Panel" parent="GUI/VSplitContainer"]
+[node name="Item2" type="Panel" parent="VSplitContainer"]
 margin_left = 100.0
 margin_right = 200.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 100, 0 )
 
-[node name="Label" type="Label" parent="GUI/VSplitContainer/Item2"]
+[node name="Label" type="Label" parent="VSplitContainer/Item2"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -162,18 +350,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="GUI"]
-visible = false
-anchor_top = 0.85
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -0.269775
-margin_bottom = 0.0501709
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CameraArea" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1 )
-shape = SubResource( 4 )
-[connection signal="pressed" from="GUI/VSplitContainer/BuildButton" to="Camera" method="_on_BuildButton_pressed"]
+[node name="LevelObserver" type="Node" parent="."]
+script = ExtResource( 9 )
+[connection signal="pressed" from="VSplitContainer/BuildButton" to="LevelObserver" method="_on_BuildButton_pressed"]
+[connection signal="add_tower" from="LevelObserver" to="Grid" method="_on_LevelObserver_add_tower"]

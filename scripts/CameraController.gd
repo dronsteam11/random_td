@@ -19,9 +19,6 @@ func _unhandled_input(event):
 			area.global_transform.origin.z - area.shape.extents.z / 2,
 			area.global_transform.origin.z + area.shape.extents.z / 2 )
 		
-	#elif event is InputEventScreenTouch:
-	#	print(event.as_text())
-		
 func _on_BuildButton_pressed():
 	_state = Enums.ControllState.Build
 	pass # Replace with function body.
