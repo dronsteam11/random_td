@@ -1,0 +1,54 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "PathFollow2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://scripts/enemy.gd"
+}, {
+"base": "Node",
+"class": "EnemyManager",
+"language": "GDScript",
+"path": "res://scripts/enemy_manager.gd"
+}, {
+"base": "Node2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://scripts/projectile.gd"
+}, {
+"base": "Node2D",
+"class": "Tower",
+"language": "GDScript",
+"path": "res://scripts/tower.gd"
+} ]
+_global_script_class_icons={
+"Enemy": "",
+"EnemyManager": "",
+"Projectile": "",
+"Tower": ""
+}
+
+[application]
+
+config/name="Random 2d"
+run/main_scene="res://GameLevel.tscn"
+config/icon="res://icon.png"
+
+[display]
+
+window/vsync/use_vsync=false
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_environment="res://default_env.tres"

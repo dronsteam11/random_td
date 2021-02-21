@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/tower1.tres" type="Texture" id=1]
+[ext_resource path="res://scripts/tower.gd" type="Script" id=2]
+[ext_resource path="res://entities/projectile.tscn" type="PackedScene" id=3]
+
+
+[node name="MagicTower" type="Sprite"]
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+projectile_entities = ExtResource( 3 )
