@@ -10,7 +10,7 @@ export var projectile_entities : PackedScene
 
 
 var _is_ready_shoot = true
-onready var _enemy_manager : EnemyManager = get_node("../EnemyManager")
+onready var _enemy_manager : EnemyManager = get_node("../../EnemyManager")
 
 var _enemy : Enemy = null
 

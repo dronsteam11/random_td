@@ -13,5 +13,5 @@ projectile_entities = ExtResource( 3 )
 texture = ExtResource( 4 )
 
 [node name="MagicTowerKristal" type="Sprite" parent="."]
-position = Vector2( 0, -70 )
+position = Vector2( 0, -105.318 )
 texture = ExtResource( 1 )

@@ -1,8 +1,311 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://entities/magic_tower.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/enemy_manager.gd" type="Script" id=2]
-[ext_resource path="res://new_tileset.tres" type="TileSet" id=4]
+[ext_resource path="res://GameInteractMap.gd" type="Script" id=3]
+[ext_resource path="res://images/Tale1_2.png" type="Texture" id=4]
+[ext_resource path="res://images/Tale1_1.png" type="Texture" id=5]
+[ext_resource path="res://images/Tale1_3.png" type="Texture" id=6]
+[ext_resource path="res://images/Tale4_1.png" type="Texture" id=7]
+[ext_resource path="res://images/Tale4_2.png" type="Texture" id=8]
+[ext_resource path="res://images/Tale4_3.png" type="Texture" id=9]
+[ext_resource path="res://images/Tale4_4.png" type="Texture" id=10]
+[ext_resource path="res://images/Tale6_1.png" type="Texture" id=11]
+[ext_resource path="res://images/Tale6_2.png" type="Texture" id=12]
+[ext_resource path="res://images/Tale6_3.png" type="Texture" id=13]
+[ext_resource path="res://images/Tale6_4.png" type="Texture" id=14]
+[ext_resource path="res://images/TaleDoroga1_1.png" type="Texture" id=15]
+[ext_resource path="res://images/TaleDoroga1_2.png" type="Texture" id=16]
+[ext_resource path="res://images/TaleDoroga1_3.png" type="Texture" id=17]
+[ext_resource path="res://images/TaleDoroga1_4.png" type="Texture" id=18]
+[ext_resource path="res://images/TaleDoroga2_1.png" type="Texture" id=19]
+[ext_resource path="res://images/TaleDoroga2_2.png" type="Texture" id=20]
+[ext_resource path="res://images/TaleDoroga2_3.png" type="Texture" id=21]
+[ext_resource path="res://images/TaleDoroga2_4.png" type="Texture" id=22]
+[ext_resource path="res://new_tileset.tres" type="TileSet" id=23]
+[ext_resource path="res://CellMagic.tscn" type="PackedScene" id=24]
+
+[sub_resource type="TileSet" id=2]
+0/name = "Tale1_1"
+0/texture = ExtResource( 5 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 321, 181 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 160.5, 90.5 )
+0/navigation_offset = Vector2( 160.5, 90.5 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "Tale1_2"
+1/texture = ExtResource( 4 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 321, 181 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 160.5, 90.5 )
+1/navigation_offset = Vector2( 160.5, 90.5 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "Tale1_3"
+2/texture = ExtResource( 6 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 321, 181 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 160.5, 90.5 )
+2/navigation_offset = Vector2( 160.5, 90.5 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "Tale4_1"
+3/texture = ExtResource( 7 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 0, 321, 181 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 160.5, 90.5 )
+3/navigation_offset = Vector2( 160.5, 90.5 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "Tale4_2"
+4/texture = ExtResource( 8 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 0, 321, 181 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 160.5, 90.5 )
+4/navigation_offset = Vector2( 160.5, 90.5 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+5/name = "Tale4_3"
+5/texture = ExtResource( 9 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 0, 0, 321, 181 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 160.5, 90.5 )
+5/navigation_offset = Vector2( 160.5, 90.5 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+6/name = "Tale4_4"
+6/texture = ExtResource( 10 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 0, 0, 321, 181 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 160.5, 90.5 )
+6/navigation_offset = Vector2( 160.5, 90.5 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+7/name = "Tale6_1"
+7/texture = ExtResource( 11 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 0, 0, 321, 187 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 160.5, 93.5 )
+7/navigation_offset = Vector2( 160.5, 93.5 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0
+8/name = "Tale6_2"
+8/texture = ExtResource( 12 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 0, 0, 321, 181 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 160.5, 90.5 )
+8/navigation_offset = Vector2( 160.5, 90.5 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape_one_way = false
+8/shape_one_way_margin = 0.0
+8/shapes = [  ]
+8/z_index = 0
+9/name = "Tale6_3"
+9/texture = ExtResource( 13 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 0, 0, 321, 189 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 160.5, 94.5 )
+9/navigation_offset = Vector2( 160.5, 94.5 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape_one_way = false
+9/shape_one_way_margin = 0.0
+9/shapes = [  ]
+9/z_index = 0
+10/name = "Tale6_4"
+10/texture = ExtResource( 14 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 0, 0, 321, 181 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 160.5, 90.5 )
+10/navigation_offset = Vector2( 160.5, 90.5 )
+10/shape_offset = Vector2( 0, 0 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape_one_way = false
+10/shape_one_way_margin = 0.0
+10/shapes = [  ]
+10/z_index = 0
+11/name = "TaleDoroga1_1"
+11/texture = ExtResource( 15 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 0, 0, 321, 193 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 160.5, 96.5 )
+11/navigation_offset = Vector2( 160.5, 96.5 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape_one_way = false
+11/shape_one_way_margin = 0.0
+11/shapes = [  ]
+11/z_index = 0
+12/name = "TaleDoroga1_2"
+12/texture = ExtResource( 16 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 0, 0, 321, 193 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 160.5, 96.5 )
+12/navigation_offset = Vector2( 160.5, 96.5 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape_one_way = false
+12/shape_one_way_margin = 0.0
+12/shapes = [  ]
+12/z_index = 0
+13/name = "TaleDoroga1_3"
+13/texture = ExtResource( 17 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 0, 0, 321, 193 )
+13/tile_mode = 0
+13/occluder_offset = Vector2( 160.5, 96.5 )
+13/navigation_offset = Vector2( 160.5, 96.5 )
+13/shape_offset = Vector2( 0, 0 )
+13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+13/shape_one_way = false
+13/shape_one_way_margin = 0.0
+13/shapes = [  ]
+13/z_index = 0
+14/name = "TaleDoroga1_4"
+14/texture = ExtResource( 18 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 0, 0, 321, 193 )
+14/tile_mode = 0
+14/occluder_offset = Vector2( 160.5, 96.5 )
+14/navigation_offset = Vector2( 160.5, 96.5 )
+14/shape_offset = Vector2( 0, 0 )
+14/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+14/shape_one_way = false
+14/shape_one_way_margin = 0.0
+14/shapes = [  ]
+14/z_index = 0
+15/name = "TaleDoroga2_1"
+15/texture = ExtResource( 19 )
+15/tex_offset = Vector2( 0, 0 )
+15/modulate = Color( 1, 1, 1, 1 )
+15/region = Rect2( 0, 0, 321, 187 )
+15/tile_mode = 0
+15/occluder_offset = Vector2( 160.5, 93.5 )
+15/navigation_offset = Vector2( 160.5, 93.5 )
+15/shape_offset = Vector2( 0, 0 )
+15/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+15/shape_one_way = false
+15/shape_one_way_margin = 0.0
+15/shapes = [  ]
+15/z_index = 0
+16/name = "TaleDoroga2_2"
+16/texture = ExtResource( 20 )
+16/tex_offset = Vector2( 0, 0 )
+16/modulate = Color( 1, 1, 1, 1 )
+16/region = Rect2( 0, 0, 321, 193 )
+16/tile_mode = 0
+16/occluder_offset = Vector2( 160.5, 96.5 )
+16/navigation_offset = Vector2( 160.5, 96.5 )
+16/shape_offset = Vector2( 0, 0 )
+16/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+16/shape_one_way = false
+16/shape_one_way_margin = 0.0
+16/shapes = [  ]
+16/z_index = 0
+17/name = "TaleDoroga2_3"
+17/texture = ExtResource( 21 )
+17/tex_offset = Vector2( 0, 0 )
+17/modulate = Color( 1, 1, 1, 1 )
+17/region = Rect2( 0, 0, 321, 181 )
+17/tile_mode = 0
+17/occluder_offset = Vector2( 160.5, 90.5 )
+17/navigation_offset = Vector2( 160.5, 90.5 )
+17/shape_offset = Vector2( 0, 0 )
+17/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+17/shape_one_way = false
+17/shape_one_way_margin = 0.0
+17/shapes = [  ]
+17/z_index = 0
+18/name = "TaleDoroga2_4"
+18/texture = ExtResource( 22 )
+18/tex_offset = Vector2( 0, 0 )
+18/modulate = Color( 1, 1, 1, 1 )
+18/region = Rect2( 0, 0, 321, 193 )
+18/tile_mode = 0
+18/occluder_offset = Vector2( 160.5, 96.5 )
+18/navigation_offset = Vector2( 160.5, 96.5 )
+18/shape_offset = Vector2( 0, 0 )
+18/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+18/shape_one_way = false
+18/shape_one_way_margin = 0.0
+18/shapes = [  ]
+18/z_index = 0
+19/name = "TaleDoroga2_5"
+19/texture = ExtResource( 20 )
+19/tex_offset = Vector2( 0, 0 )
+19/modulate = Color( 1, 1, 1, 1 )
+19/region = Rect2( 0, 0, 321, 193 )
+19/tile_mode = 0
+19/occluder_offset = Vector2( 160.5, 96.5 )
+19/navigation_offset = Vector2( 160.5, 96.5 )
+19/shape_offset = Vector2( 0, 0 )
+19/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+19/shape_one_way = false
+19/shape_one_way_margin = 0.0
+19/shapes = [  ]
+19/z_index = 0
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -11,53 +314,73 @@ _data = {
 
 [node name="GameLevel" type="Node2D"]
 
+[node name="GameInteractMap" type="TileMap" parent="."]
+z_as_relative = false
+mode = 1
+tile_set = SubResource( 2 )
+cell_size = Vector2( 320, 161 )
+cell_custom_transform = Transform2D( 320, 0, 0, 161, 0, 0 )
+cell_tile_origin = 1
+format = 1
+tile_data = PoolIntArray( -131069, 4, 0, -65533, 4, 0, 3, 4, 0, 65539, 4, 0, 131075, 4, 0 )
+script = ExtResource( 3 )
+cell_magic = ExtResource( 24 )
+
 [node name="GameLevelMap" type="TileMap" parent="."]
 mode = 1
-tile_set = ExtResource( 4 )
-cell_size = Vector2( 310, 155 )
-cell_custom_transform = Transform2D( 310, 0, 0, 155, 0, 0 )
+tile_set = ExtResource( 23 )
+cell_size = Vector2( 320, 161 )
+cell_quadrant_size = 128
+cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
 cell_tile_origin = 1
 cell_y_sort = true
+compatibility_mode = true
 centered_textures = true
 format = 1
-tile_data = PoolIntArray( -196607, 1, 0, -196606, 0, 0, -196605, 1, 0, -196604, 0, 0, -196603, 0, 0, -131071, 0, 0, -131070, 17, 0, -131069, 12, 0, -131068, 18, 0, -131067, 7, 0, -65535, 7, 0, -65534, 11, 0, -65533, 4, 0, -65532, 11, 0, -65531, 0, 0, 1, 10, 0, 2, 11, 0, 3, 4, 0, 4, 11, 0, 5, 7, 0, 65537, 0, 0, 65538, 11, 0, 65539, 4, 0, 65540, 11, 0, 65541, 0, 0, 131073, 10, 0, 131074, 16, 0, 131075, 12, 0, 131076, 15, 0, 131077, 1, 0, 196609, 0, 0, 196610, 1, 0, 196611, 0, 0, 196612, 0, 0, 196613, 1, 0 )
-
-[node name="GameInteractMap" type="TileMap" parent="."]
-mode = 1
-tile_set = ExtResource( 4 )
-cell_size = Vector2( 310, 155 )
-cell_custom_transform = Transform2D( 310, 0, 0, 155, 0, 0 )
-cell_tile_origin = 1
-cell_y_sort = true
-centered_textures = true
-format = 1
-tile_data = PoolIntArray( -196607, 1, 0, -196606, 0, 0, -196605, 1, 0, -196604, 0, 0, -196603, 0, 0, -131071, 0, 0, -131070, 17, 0, -131069, 12, 0, -131068, 18, 0, -131067, 7, 0, -65535, 7, 0, -65534, 11, 0, -65533, 4, 0, -65532, 11, 0, -65531, 0, 0, 1, 10, 0, 2, 11, 0, 3, 4, 0, 4, 11, 0, 5, 7, 0, 65537, 0, 0, 65538, 11, 0, 65539, 4, 0, 65540, 11, 0, 65541, 0, 0, 131073, 10, 0, 131074, 16, 0, 131075, 12, 0, 131076, 15, 0, 131077, 1, 0, 196609, 0, 0, 196610, 1, 0, 196611, 0, 0, 196612, 0, 0, 196613, 1, 0 )
-
-[node name="Camera" type="Camera2D" parent="."]
-position = Vector2( 453.06, 305.815 )
-current = true
-
-[node name="MagicTower" parent="." instance=ExtResource( 1 )]
-position = Vector2( 304.677, 372.539 )
-shoot_cooldown = 0.4
-shoot_distance = 1000.0
-shoot_projectile_speed = 1000.0
-
-[node name="MagicTower2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 463.696, 295.082 )
-shoot_cooldown = 0.4
-shoot_distance = 1000.0
-shoot_projectile_speed = 1000.0
-
-[node name="MagicTower3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 617.197, 213.581 )
-shoot_cooldown = 0.4
-shoot_distance = 1000.0
-shoot_projectile_speed = 500.0
+tile_data = PoolIntArray( -196607, 0, 0, -196606, 17, 0, -196605, 12, 0, -196604, 18, 0, -196603, 0, 0, -131071, 0, 0, -131070, 11, 0, -131068, 11, 0, -131067, 0, 0, -65535, 0, 0, -65534, 11, 0, -65532, 11, 0, -65531, 0, 0, 1, 0, 0, 2, 11, 0, 4, 11, 0, 5, 0, 0, 65537, 0, 0, 65538, 11, 0, 65540, 11, 0, 65541, 0, 0, 131073, 0, 0, 131074, 11, 0, 131076, 11, 0, 131077, 0, 0, 196609, 0, 0, 196610, 16, 0, 196611, 12, 0, 196612, 15, 0, 196613, 0, 0 )
 
 [node name="EnemyManager" type="Node" parent="."]
 script = ExtResource( 2 )
 
 [node name="EnemyPath" type="Path2D" parent="EnemyManager"]
-position = Vector2( 73.6749, -146.111 )
+position = Vector2( 52.6986, -146.111 )
 curve = SubResource( 1 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="MagicTower" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 319.796, 410.336 )
+shoot_cooldown = 0.4
+shoot_distance = 1000.0
+shoot_projectile_speed = 1000.0
+
+[node name="MagicTower2" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 483.854, 325.32 )
+shoot_cooldown = 0.4
+shoot_distance = 1000.0
+shoot_projectile_speed = 1000.0
+
+[node name="MagicTower3" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 649.955, 241.3 )
+shoot_cooldown = 0.4
+shoot_distance = 1000.0
+shoot_projectile_speed = 500.0
+
+[node name="Control" type="Control" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+margin_right = 40.0
+margin_bottom = 31.0
+text = "50 50
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 447.692, 410.566 )
+current = true
+editor_draw_drag_margin = true

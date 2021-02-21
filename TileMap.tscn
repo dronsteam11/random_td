@@ -80,5 +80,4 @@ texture = ExtResource( 18 )
 texture = ExtResource( 19 )
 
 [node name="TaleDoroga2_5" type="Sprite" parent="."]
-position = Vector2( 2.72546, -1.72879 )
 texture = ExtResource( 17 )
