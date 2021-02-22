@@ -4,32 +4,35 @@ class_name Enemy
 export var health : float = 100.0
 export var speed : float = 10.0
 
-export var dir_left : Rect2
-export var dir_right : Rect2
-export var dir_top : Rect2
-export var dir_bottom : Rect2
+export var _sprite_bot_right : Texture
+export var _sprite_bot_left : Texture
+export var _sprite_top_left : Texture
+export var _sprite_top_right : Texture
+
+onready var _sprite = get_node("Sprite")
 
 var _dir = 0
-
+var _prev_pos : Vector2
 func _ready():
 	add_to_group("enemies")
 	pass
 
 func _process(delta):
-	var _prev_pos = self.global_position
+	_prev_pos = self.global_position
 	self.offset += delta * speed
-	var pos = self.global_position
-	_dir = (pos.angle_to_point(_prev_pos) / PI) * 180
-	#print(_dir)
-	if _dir <= 45 and _dir >= -0:
-		get_child(0).texture.region = dir_right
-	elif _dir <= 120 and _dir >= -15:
-		get_child(0).texture.region = dir_left
-	elif _dir >= -120 and _dir <= -15:
-		get_child(0).texture.region = dir_top
-	elif _dir >= 45 and _dir <= 90:
-		get_child(0).texture.region = dir_bottom
-
+	
+	_dir = (self.global_position.angle_to_point(_prev_pos) / PI) * 180
+	
+	if _dir > 0 and _dir <= 45:
+		_sprite.texture = _sprite_bot_right
+	elif _dir <= 0 and _dir >= -45:
+		_sprite.texture = _sprite_top_right
+	elif _dir <= -135 and _dir >= -180:
+		_sprite.texture = _sprite_top_left
+	elif _dir >= 135 and _dir <= 180:
+		_sprite.texture = _sprite_bot_left
+	
+	
 func damage(dmg : float):
 	health -= dmg
 	if health <= 0:

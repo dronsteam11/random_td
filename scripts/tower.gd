@@ -31,20 +31,25 @@ func _find_target():
 	var count = len(_enemy_manager.enemies)
 	if count == 0: return
 	
-	var min_distance = self.global_position.distance_to(_enemy_manager.enemies[0].global_position)
-	var index = 0
-	for i in range(1, count):
-		var _current_dist = self.global_transform.origin.distance_to(
-			_enemy_manager.enemies[i].global_transform.origin)
-	
-		if min_distance > _current_dist:
-			min_distance = _current_dist
-			index = i
-	var new_target = _enemy_manager.enemies[index]
+	var new_target = _min_distance(_enemy_manager.enemies) #_enemy_manager.enemies[index]
 	
 	if self.global_position.distance_to(new_target.global_position) <= shoot_distance:
 		_enemy = new_target
 		
+func _min_distance(enemies : Array) -> Enemy:
+	var index = 0
+	var min_distance = self.global_position.distance_to(
+			enemies[index].global_position)
+			
+	for i in range(1, len(enemies)):
+		var _current_dist = self.global_position.distance_to(
+			enemies[i].global_position)
+			
+		if min_distance > _current_dist:
+			min_distance = _current_dist
+			index = i
+	
+	return enemies[index]
 
 func _shoot():
 	if _enemy == null: return

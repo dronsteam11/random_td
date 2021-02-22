@@ -1,7 +1,7 @@
 extends Node
 class_name EnemyManager
 
-const enemy_entity = preload("res://entities/enemy.tscn")
+const enemy_entity = preload("res://entities/enemies/tank.tscn")
 
 export var active : bool = true
 
@@ -12,16 +12,12 @@ func _ready():
 	_test_spawn()
 	pass
 
-func _process(delta):
+func _process(_delta):
 	enemies = get_tree().get_nodes_in_group("enemies")
+
 func create_enemy():
 	var new_enemy = enemy_entity.instance()
 	get_child(0).add_child(new_enemy)
-	#enemies.push_back(new_enemy)
-	pass
-
-func remove_enemy(enemy):
-	#enemies.erase(enemy)
 	pass
 
 func _test_spawn():

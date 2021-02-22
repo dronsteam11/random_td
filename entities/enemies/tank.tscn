@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/enemy.gd" type="Script" id=1]
+[ext_resource path="res://images/Mob1_4.png" type="Texture" id=2]
+[ext_resource path="res://images/Mob1_3.png" type="Texture" id=3]
+[ext_resource path="res://images/Mob1_2.png" type="Texture" id=4]
+[ext_resource path="res://images/Mob1_1.png" type="Texture" id=5]
+
+[node name="Tank" type="PathFollow2D"]
+rotate = false
+script = ExtResource( 1 )
+health = 10000.0
+speed = 200.0
+_sprite_bot_right = ExtResource( 2 )
+_sprite_bot_left = ExtResource( 5 )
+_sprite_top_left = ExtResource( 4 )
+_sprite_top_right = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+z_index = 1
+texture = ExtResource( 2 )
