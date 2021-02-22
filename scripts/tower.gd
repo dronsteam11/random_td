@@ -8,9 +8,8 @@ export var shoot_projectile_speed : float = 10.0
 
 export var projectile_entities : PackedScene
 
-
 var _is_ready_shoot = true
-onready var _enemy_manager : EnemyManager = get_node("../../EnemyManager")
+onready var _enemy_manager : EnemyManager = get_node("/root/GameLevel/EnemyManager")
 
 var _enemy : Enemy = null
 
@@ -26,6 +25,7 @@ func _process(_delta):
 	pass
 
 func _find_target():
+	
 	if _enemy != null:
 		return
 	var count = len(_enemy_manager.enemies)
@@ -42,8 +42,9 @@ func _find_target():
 			index = i
 	var new_target = _enemy_manager.enemies[index]
 	
-	if self.global_transform.origin.distance_to(new_target.global_transform.origin) <= shoot_distance:
+	if self.global_position.distance_to(new_target.global_position) <= shoot_distance:
 		_enemy = new_target
+		
 
 func _shoot():
 	if _enemy == null: return

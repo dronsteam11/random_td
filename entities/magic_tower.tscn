@@ -1,17 +1,24 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://images/MagicTowerKristal1_1.png" type="Texture" id=1]
 [ext_resource path="res://scripts/tower.gd" type="Script" id=2]
 [ext_resource path="res://entities/projectile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://images/MagicTowerOsnova1_1.png" type="Texture" id=4]
+[ext_resource path="res://entities/AnimationKristal.gd" type="Script" id=5]
 
 [node name="MagicTower" type="Node2D"]
 script = ExtResource( 2 )
+shoot_distance = 200.0
+shoot_projectile_speed = 500.0
 projectile_entities = ExtResource( 3 )
 
 [node name="MagicTowerOsnova" type="Sprite" parent="."]
+z_index = 1
 texture = ExtResource( 4 )
+offset = Vector2( 0, 70 )
 
 [node name="MagicTowerKristal" type="Sprite" parent="."]
-position = Vector2( 0, -105.318 )
+z_index = 1
 texture = ExtResource( 1 )
+offset = Vector2( 0, -10 )
+script = ExtResource( 5 )

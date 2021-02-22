@@ -3,6 +3,7 @@
 [ext_resource path="res://images/Setka/SetkaTDRandom.png" type="Texture" id=1]
 
 [node name="SetkaTDRandom" type="Sprite"]
-scale = Vector2( 0.2, 0.2 )
+z_index = 1
 texture = ExtResource( 1 )
-offset = Vector2( 0, 500 )
+centered = false
+offset = Vector2( -700, 0 )

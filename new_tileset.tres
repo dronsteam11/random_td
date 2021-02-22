@@ -23,7 +23,7 @@
 [resource]
 0/name = "Tale1_1"
 0/texture = ExtResource( 2 )
-0/tex_offset = Vector2( 0, 0 )
+0/tex_offset = Vector2( 0, 6 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 321, 181 )
 0/tile_mode = 0
@@ -79,7 +79,7 @@
 3/z_index = 0
 4/name = "Tale4_2"
 4/texture = ExtResource( 5 )
-4/tex_offset = Vector2( 0, 0 )
+4/tex_offset = Vector2( 0, 6 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 0, 0, 321, 181 )
 4/tile_mode = 0
@@ -233,7 +233,7 @@
 14/z_index = 0
 15/name = "TaleDoroga2_1"
 15/texture = ExtResource( 16 )
-15/tex_offset = Vector2( 0, 0 )
+15/tex_offset = Vector2( 0, 5 )
 15/modulate = Color( 1, 1, 1, 1 )
 15/region = Rect2( 0, 0, 321, 187 )
 15/tile_mode = 0
@@ -247,7 +247,7 @@
 15/z_index = 0
 16/name = "TaleDoroga2_2"
 16/texture = ExtResource( 17 )
-16/tex_offset = Vector2( 0, 0 )
+16/tex_offset = Vector2( 0, 5 )
 16/modulate = Color( 1, 1, 1, 1 )
 16/region = Rect2( 0, 0, 321, 193 )
 16/tile_mode = 0
@@ -259,20 +259,6 @@
 16/shape_one_way_margin = 0.0
 16/shapes = [  ]
 16/z_index = 0
-17/name = "TaleDoroga2_3"
-17/texture = ExtResource( 18 )
-17/tex_offset = Vector2( 0, 0 )
-17/modulate = Color( 1, 1, 1, 1 )
-17/region = Rect2( 0, 0, 321, 181 )
-17/tile_mode = 0
-17/occluder_offset = Vector2( 160.5, 90.5 )
-17/navigation_offset = Vector2( 160.5, 90.5 )
-17/shape_offset = Vector2( 0, 0 )
-17/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-17/shape_one_way = false
-17/shape_one_way_margin = 0.0
-17/shapes = [  ]
-17/z_index = 0
 18/name = "TaleDoroga2_4"
 18/texture = ExtResource( 19 )
 18/tex_offset = Vector2( 0, 0 )
@@ -301,3 +287,17 @@
 19/shape_one_way_margin = 0.0
 19/shapes = [  ]
 19/z_index = 0
+20/name = "TaleDoroga2_3.png 20"
+20/texture = ExtResource( 18 )
+20/tex_offset = Vector2( 0, 12 )
+20/modulate = Color( 1, 1, 1, 1 )
+20/region = Rect2( 0, 0, 320, 192 )
+20/tile_mode = 0
+20/occluder_offset = Vector2( 0, 0 )
+20/navigation_offset = Vector2( 0, 0 )
+20/shape_offset = Vector2( 0, 0 )
+20/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+20/shape_one_way = false
+20/shape_one_way_margin = 0.0
+20/shapes = [  ]
+20/z_index = 0
