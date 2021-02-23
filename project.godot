@@ -50,7 +50,11 @@ config/icon="res://icon.png"
 
 [display]
 
+window/size/width=280
+window/size/height=620
 window/handheld/orientation="portrait"
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [input_devices]
 
