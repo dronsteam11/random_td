@@ -25,37 +25,36 @@ func _process(_delta):
 	pass
 
 func _find_target():
-	
+
 	if _enemy != null:
 		return
 	var count = len(_enemy_manager.enemies)
 	if count == 0: return
-	
+
 	var new_target = _min_distance(_enemy_manager.enemies) #_enemy_manager.enemies[index]
-	
+
 	if self.global_position.distance_to(new_target.global_position) <= shoot_distance:
 		_enemy = new_target
-		
+
 func _min_distance(enemies : Array) -> Enemy:
 	var index = 0
 	var min_distance = self.global_position.distance_to(
 			enemies[index].global_position)
-			
+
 	for i in range(1, len(enemies)):
 		var _current_dist = self.global_position.distance_to(
 			enemies[i].global_position)
-			
+
 		if min_distance > _current_dist:
 			min_distance = _current_dist
 			index = i
-	
+
 	return enemies[index]
 
 func _shoot():
 	if _enemy == null: return
 	var projectile : Projectile = projectile_entities.instance()
 	projectile.set_target(_enemy, shoot_damage, shoot_projectile_speed)
-	
 	add_child(projectile)
 	_start_cooldown()
 	pass

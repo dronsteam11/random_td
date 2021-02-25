@@ -21,6 +21,7 @@ func create_enemy():
 	pass
 
 func _test_spawn():
+	
 	while active:
 		yield(get_tree().create_timer(100.0), "timeout")
 		create_enemy()

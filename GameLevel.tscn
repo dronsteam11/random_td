@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://entities/towers/magic/t1_1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/enemy_manager.gd" type="Script" id=2]
@@ -23,15 +23,11 @@
 [ext_resource path="res://images/TaleDoroga2_3.png" type="Texture" id=21]
 [ext_resource path="res://images/TaleDoroga2_4.png" type="Texture" id=22]
 [ext_resource path="res://all_tile_set.tres" type="TileSet" id=23]
-[ext_resource path="res://entities/cells/magic.tscn" type="PackedScene" id=24]
+[ext_resource path="res://entities/cells/magic_cell.tscn" type="PackedScene" id=24]
 [ext_resource path="res://scripts/camera_controller.gd" type="Script" id=25]
 [ext_resource path="res://scripts/player_data.gd" type="Script" id=26]
-[ext_resource path="res://ui_elements/Ramka.png" type="Texture" id=27]
-[ext_resource path="res://ui_elements/PodRamka.png" type="Texture" id=28]
-[ext_resource path="res://ui_entities/bottom_count_item.tscn" type="PackedScene" id=29]
-[ext_resource path="res://ui_elements/Magic.png" type="Texture" id=30]
-[ext_resource path="res://ui_elements/STR.png" type="Texture" id=31]
-[ext_resource path="res://ui_elements/qun3aZQmAys.jpg" type="Texture" id=32]
+[ext_resource path="res://ui_entities/game_interface.tscn" type="PackedScene" id=27]
+[ext_resource path="res://scripts/state_manager.gd" type="Script" id=28]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -361,14 +357,11 @@ tile_data = PoolIntArray( -131069, 4, 0, -65533, 4, 0, 3, 4, 0, 65539, 4, 0, 131
 script = ExtResource( 3 )
 cell_magic = ExtResource( 24 )
 magic_tower = ExtResource( 1 )
+grid_path = NodePath("../Grid")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
-[node name="qun3aZQmAys" type="Sprite" parent="GUI"]
-visible = false
-scale = Vector2( 0.98, 1 )
-texture = ExtResource( 32 )
-centered = false
+[node name="Interface" parent="GUI" instance=ExtResource( 27 )]
 
 [node name="Control" type="Control" parent="GUI"]
 anchor_right = 1.0
@@ -400,92 +393,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Interface" type="Control" parent="GUI"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Bottom2" type="MarginContainer" parent="GUI/Interface"]
-visible = false
-anchor_top = 0.8
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Background" type="NinePatchRect" parent="GUI/Interface/Bottom2"]
-margin_right = 280.0
-margin_bottom = 124.0
-texture = ExtResource( 28 )
-
-[node name="Bottom" type="MarginContainer" parent="GUI/Interface"]
-anchor_top = 0.717742
-anchor_right = 1.0
-anchor_bottom = 0.992968
-margin_bottom = 4.36005
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="BottomBorder" type="NinePatchRect" parent="GUI/Interface/Bottom"]
-margin_right = 280.0
-margin_bottom = 175.0
-texture = ExtResource( 27 )
-
-[node name="Item" parent="GUI/Interface" instance=ExtResource( 29 )]
-visible = false
-anchor_left = 0.234698
-anchor_top = 0.698751
-anchor_right = 0.277555
-anchor_bottom = 0.747085
-margin_right = 0.0
-margin_bottom = 0.0
-
-[node name="Item2" parent="GUI/Interface" instance=ExtResource( 29 )]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.723463
-anchor_right = 0.520309
-anchor_bottom = 0.801526
-margin_left = -7.0
-margin_right = 0.0
-margin_bottom = -17.8381
-
-[node name="NinePatchRect" parent="GUI/Interface/Item2" index="1"]
-texture = ExtResource( 31 )
-
-[node name="Item3" parent="GUI/Interface" instance=ExtResource( 29 )]
-visible = false
-anchor_left = 0.634568
-anchor_top = 0.752531
-anchor_right = 0.677425
-anchor_bottom = 0.807531
-margin_left = 5.94
-margin_top = -17.0433
-margin_right = 5.94003
-margin_bottom = -21.0433
-
-[node name="NinePatchRect" parent="GUI/Interface/Item3" index="1"]
-texture = ExtResource( 30 )
-
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( 447.692, 410.566 )
 current = true
+zoom = Vector2( 1.7, 1.7 )
+smoothing_enabled = true
 editor_draw_drag_margin = true
 script = ExtResource( 25 )
 
 [node name="CameraBounds" type="CollisionShape2D" parent="."]
-position = Vector2( 415.193, 275.295 )
+position = Vector2( 489.538, 269.795 )
 shape = SubResource( 3 )
 disabled = true
 
 [node name="PlayerData" type="Node" parent="."]
 script = ExtResource( 26 )
 
-[editable path="GUI/Interface/Item2"]
+[node name="StateManager" type="Node" parent="."]
+script = ExtResource( 28 )
 
-[editable path="GUI/Interface/Item3"]
+[editable path="GUI/Interface"]

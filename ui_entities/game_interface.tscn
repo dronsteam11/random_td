@@ -1,0 +1,311 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://ui_entities/bottom_count_item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui_elements/Ramka.png" type="Texture" id=2]
+[ext_resource path="res://ui_elements/PodRamka.png" type="Texture" id=3]
+[ext_resource path="res://ui_elements/RandomBox_Lvl3.png" type="Texture" id=4]
+[ext_resource path="res://ui_elements/RandomBox_Lvl5.png" type="Texture" id=5]
+[ext_resource path="res://ui_elements/RandomBox_Lvl1.png" type="Texture" id=6]
+[ext_resource path="res://ui_elements/qun3aZQmAys.jpg" type="Texture" id=7]
+[ext_resource path="res://ui_elements/STR.png" type="Texture" id=8]
+[ext_resource path="res://ui_elements/Magic.png" type="Texture" id=9]
+[ext_resource path="res://ui_elements/RamkaHPMANAMONEY.png" type="Texture" id=10]
+[ext_resource path="res://ui_elements/HP.png" type="Texture" id=11]
+[ext_resource path="res://ui_entities/top_left_counter.tscn" type="PackedScene" id=12]
+[ext_resource path="res://ui_elements/MP.png" type="Texture" id=13]
+[ext_resource path="res://ui_elements/RamkaSettings.png" type="Texture" id=14]
+[ext_resource path="res://ui_elements/Settings.png" type="Texture" id=15]
+[ext_resource path="res://ui_entities/game_interface_controller.gd" type="Script" id=16]
+
+[node name="GameInterface" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="qun3aZQmAys" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Top" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.204
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Left" type="Control" parent="Top"]
+margin_right = 70.24
+margin_bottom = 127.104
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="NinePatchRect" parent="Top/Left"]
+anchor_left = -0.014
+anchor_top = -0.008
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.01664
+margin_top = 0.016832
+margin_right = -0.239998
+margin_bottom = -0.103996
+size_flags_horizontal = 15
+size_flags_vertical = 15
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CounterContainer" type="VBoxContainer" parent="Top/Left"]
+margin_left = 4.49536
+margin_top = 11.3122
+margin_right = 44.4954
+margin_bottom = 114.483
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="CenterContainer" parent="Top/Left/CounterContainer"]
+margin_right = 40.0
+margin_bottom = 31.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+
+[node name="Label" type="Label" parent="Top/Left/CounterContainer/VBoxContainer"]
+margin_left = 12.0
+margin_top = 8.0
+margin_right = 28.0
+margin_bottom = 22.0
+text = "11"
+align = 1
+valign = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Top/Left/CounterContainer/VBoxContainer"]
+margin_left = 5.0
+margin_right = 35.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 11 )
+
+[node name="MoneyContainer" parent="Top/Left/CounterContainer" instance=ExtResource( 12 )]
+margin_top = 35.0
+margin_right = 40.0
+margin_bottom = 67.0
+
+[node name="HBoxContainer2" parent="Top/Left/CounterContainer" instance=ExtResource( 12 )]
+margin_top = 71.0
+margin_right = 40.0
+margin_bottom = 103.0
+size_flags_vertical = 11
+
+[node name="NinePatchRect" parent="Top/Left/CounterContainer/HBoxContainer2" index="0"]
+margin_top = 6.0
+margin_bottom = 26.0
+size_flags_horizontal = 5
+texture = ExtResource( 13 )
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Label" parent="Top/Left/CounterContainer/HBoxContainer2" index="1"]
+margin_top = 9.0
+margin_right = 36.0
+margin_bottom = 23.0
+text = "11"
+
+[node name="Right" type="Control" parent="Top"]
+anchor_left = 0.822
+anchor_right = 1.0
+anchor_bottom = 0.388
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Top/Right"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -47.84
+margin_top = -1.0
+margin_right = 2.16
+margin_bottom = 50.0
+mouse_filter = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="NinePatchRect" parent="Top/Right/CenterContainer"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 15
+size_flags_vertical = 15
+texture = ExtResource( 14 )
+
+[node name="TextureButton" type="TextureButton" parent="Top/Right"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -37.5362
+margin_top = 7.15333
+margin_right = -7.53621
+margin_bottom = 37.1533
+rect_min_size = Vector2( 30, 30 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 15 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bottom" type="Control" parent="."]
+anchor_top = 0.732
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="NinePatchRect" parent="Bottom"]
+anchor_top = 0.299
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Border" type="NinePatchRect" parent="Bottom"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CountContainer" type="HBoxContainer" parent="Bottom"]
+anchor_left = 0.314286
+anchor_top = 0.08
+anchor_right = 0.690367
+anchor_bottom = 0.254531
+margin_bottom = -3.74368
+size_flags_horizontal = 6
+size_flags_vertical = 6
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Item" parent="Bottom/CountContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 32.0
+margin_bottom = 29.0
+
+[node name="Label" parent="Bottom/CountContainer/Item" index="0"]
+margin_right = 32.0
+
+[node name="CenterContainer" parent="Bottom/CountContainer/Item" index="1"]
+margin_right = 32.0
+margin_bottom = 29.0
+
+[node name="NinePatchRect" parent="Bottom/CountContainer/Item/CenterContainer" index="0"]
+margin_left = 8.0
+margin_top = 0.0
+margin_right = 23.0
+margin_bottom = 15.0
+texture = ExtResource( 8 )
+
+[node name="Item2" parent="Bottom/CountContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 36.0
+margin_right = 68.0
+margin_bottom = 29.0
+
+[node name="Item3" parent="Bottom/CountContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_right = 105.0
+margin_bottom = 29.0
+
+[node name="Label" parent="Bottom/CountContainer/Item3" index="0"]
+margin_right = 33.0
+
+[node name="CenterContainer" parent="Bottom/CountContainer/Item3" index="1"]
+margin_right = 33.0
+margin_bottom = 29.0
+
+[node name="NinePatchRect" parent="Bottom/CountContainer/Item3/CenterContainer" index="0"]
+margin_left = 9.0
+margin_top = 0.0
+margin_right = 24.0
+margin_bottom = 15.0
+texture = ExtResource( 9 )
+
+[node name="ItemContainer" type="HBoxContainer" parent="Bottom"]
+anchor_left = 0.05
+anchor_top = 0.356
+anchor_right = 0.95
+anchor_bottom = 0.892
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Tower1" type="TextureButton" parent="Bottom/ItemContainer"]
+margin_left = 5.0
+margin_right = 75.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 6
+size_flags_vertical = 3
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="Tower3" type="TextureButton" parent="Bottom/ItemContainer"]
+margin_left = 90.0
+margin_top = 9.0
+margin_right = 160.0
+margin_bottom = 79.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
+[node name="Tower5" type="TextureButton" parent="Bottom/ItemContainer"]
+margin_left = 176.0
+margin_top = 9.0
+margin_right = 246.0
+margin_bottom = 79.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+[connection signal="pressed" from="Bottom/ItemContainer/Tower1" to="." method="_on_tower_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="Bottom/ItemContainer/Tower3" to="." method="_on_tower_pressed" binds= [ 3 ]]
+[connection signal="pressed" from="Bottom/ItemContainer/Tower5" to="." method="_on_tower_pressed" binds= [ 5 ]]
+
+[editable path="Top/Left/CounterContainer/HBoxContainer2"]
+
+[editable path="Bottom/CountContainer/Item"]
+
+[editable path="Bottom/CountContainer/Item3"]
