@@ -4,7 +4,7 @@ class_name EnemyManager
 const enemy_entity = preload("res://entities/enemies/tank.tscn")
 
 export var active : bool = true
-
+export var test_time_spawn : float = 10
 var enemies : Array = []
 
 func _ready():
@@ -21,7 +21,6 @@ func create_enemy():
 	pass
 
 func _test_spawn():
-	
 	while active:
-		yield(get_tree().create_timer(100.0), "timeout")
+		yield(get_tree().create_timer(test_time_spawn), "timeout")
 		create_enemy()

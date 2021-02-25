@@ -8,8 +8,9 @@
 
 [node name="Tank" type="PathFollow2D"]
 rotate = false
+loop = false
 script = ExtResource( 1 )
-health = 10000.0
+health = 100.0
 speed = 200.0
 _sprite_bot_right = ExtResource( 2 )
 _sprite_bot_left = ExtResource( 5 )
