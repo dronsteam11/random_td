@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://ui_entities/bottom_count_item.tscn" type="PackedScene" id=1]
-[ext_resource path="res://ui_elements/Ramka.png" type="Texture" id=2]
+[ext_resource path="res://ui_elements/OsnovaInterf.png" type="Texture" id=2]
 [ext_resource path="res://ui_elements/PodRamka.png" type="Texture" id=3]
 [ext_resource path="res://ui_elements/RandomBox_Lvl3.png" type="Texture" id=4]
 [ext_resource path="res://ui_elements/RandomBox_Lvl5.png" type="Texture" id=5]
@@ -35,10 +35,9 @@ centered = false
 [node name="Top" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 0.204
-margin_bottom = -7.62939e-06
 mouse_filter = 2
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="Left" type="Control" parent="Top"]
@@ -133,18 +132,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background" type="NinePatchRect" parent="Top/Right"]
+[node name="CenterContainer" type="CenterContainer" parent="Top/Right"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -50.0
+margin_left = -47.84
+margin_top = -1.0
+margin_right = 2.16
+margin_bottom = 50.0
+mouse_filter = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="NinePatchRect" parent="Top/Right/CenterContainer"]
+margin_right = 50.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 size_flags_horizontal = 15
 size_flags_vertical = 15
 texture = ExtResource( 14 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TextureButton" type="TextureButton" parent="Top/Right"]
 anchor_left = 1.0
@@ -163,65 +171,50 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Debug" type="Control" parent="Top"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -20.0
-margin_right = 20.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="DebugLabel" type="Label" parent="Top/Debug"]
-anchor_right = 1.0
-anchor_bottom = 0.9
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Bottom" type="Control" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -140.0
-margin_top = -191.0
+margin_top = -109.0
 margin_right = 140.0
 mouse_filter = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="Background" type="NinePatchRect" parent="Bottom"]
-anchor_top = 0.300915
-anchor_right = 1.01429
-anchor_bottom = 0.999037
+anchor_left = 0.161
+anchor_top = 0.183
+anchor_right = 0.843
+anchor_bottom = 1.0
+margin_left = -0.0800018
+margin_top = 0.0529995
+margin_right = -0.0400085
 texture = ExtResource( 3 )
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="Border" type="NinePatchRect" parent="Bottom"]
-anchor_left = -0.0107143
-anchor_top = 0.0136364
-anchor_right = 1.01071
-anchor_bottom = 0.999999
-size_flags_horizontal = 3
-size_flags_vertical = 3
+anchor_top = -0.0550459
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 2 )
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="CountContainer" type="HBoxContainer" parent="Bottom"]
-anchor_left = 0.314286
-anchor_top = 0.08
-anchor_right = 0.690367
-anchor_bottom = 0.254531
-margin_bottom = -3.74368
+anchor_left = 0.353571
+anchor_top = -0.192661
+anchor_right = 0.646429
+anchor_bottom = 0.119266
 size_flags_horizontal = 6
 size_flags_vertical = 6
 alignment = 1
@@ -232,16 +225,16 @@ __meta__ = {
 [node name="Stg" parent="Bottom/CountContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 32.0
+margin_right = 24.0
 margin_bottom = 34.0
 
 [node name="Label" parent="Bottom/CountContainer/Stg" index="0"]
-margin_right = 32.0
+margin_right = 24.0
 
 [node name="NinePatchRect" parent="Bottom/CountContainer/Stg" index="1"]
-margin_left = 8.0
+margin_left = 4.0
 margin_top = 19.0
-margin_right = 23.0
+margin_right = 19.0
 margin_bottom = 34.0
 texture = ExtResource( 8 )
 
@@ -252,33 +245,33 @@ margin_bottom = 34.0
 [node name="Agl" parent="Bottom/CountContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 36.0
-margin_right = 68.0
+margin_left = 28.0
+margin_right = 53.0
 margin_bottom = 34.0
 
 [node name="Label" parent="Bottom/CountContainer/Agl" index="0"]
-margin_right = 32.0
+margin_right = 25.0
 
 [node name="NinePatchRect" parent="Bottom/CountContainer/Agl" index="1"]
-margin_left = 8.0
+margin_left = 5.0
 margin_top = 19.0
-margin_right = 23.0
+margin_right = 20.0
 margin_bottom = 34.0
 
 [node name="Int" parent="Bottom/CountContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 72.0
-margin_right = 105.0
+margin_left = 57.0
+margin_right = 82.0
 margin_bottom = 34.0
 
 [node name="Label" parent="Bottom/CountContainer/Int" index="0"]
-margin_right = 33.0
+margin_right = 25.0
 
 [node name="NinePatchRect" parent="Bottom/CountContainer/Int" index="1"]
-margin_left = 9.0
+margin_left = 5.0
 margin_top = 19.0
-margin_right = 24.0
+margin_right = 20.0
 margin_bottom = 34.0
 texture = ExtResource( 9 )
 
@@ -287,19 +280,19 @@ margin_right = 33.0
 margin_bottom = 34.0
 
 [node name="ItemContainer" type="HBoxContainer" parent="Bottom"]
-anchor_left = 0.05
-anchor_top = 0.356
-anchor_right = 0.95
-anchor_bottom = 0.892
+anchor_left = 0.217857
+anchor_top = 0.201833
+anchor_right = 0.782143
+anchor_bottom = 0.999998
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="Tower1" type="TextureButton" parent="Bottom/ItemContainer"]
-margin_right = 81.0
-margin_bottom = 102.0
-rect_min_size = Vector2( 70, 0 )
+margin_right = 50.0
+margin_bottom = 87.0
+rect_min_size = Vector2( 50, 50 )
 size_flags_horizontal = 7
 size_flags_vertical = 5
 texture_normal = ExtResource( 6 )
@@ -307,10 +300,10 @@ expand = true
 stretch_mode = 5
 
 [node name="Tower3" type="TextureButton" parent="Bottom/ItemContainer"]
-margin_left = 85.0
-margin_right = 166.0
-margin_bottom = 102.0
-rect_min_size = Vector2( 70, 70 )
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 87.0
+rect_min_size = Vector2( 50, 50 )
 size_flags_horizontal = 7
 size_flags_vertical = 5
 texture_normal = ExtResource( 4 )
@@ -318,10 +311,10 @@ expand = true
 stretch_mode = 5
 
 [node name="Tower5" type="TextureButton" parent="Bottom/ItemContainer"]
-margin_left = 170.0
-margin_right = 252.0
-margin_bottom = 102.0
-rect_min_size = Vector2( 70, 70 )
+margin_left = 108.0
+margin_right = 158.0
+margin_bottom = 87.0
+rect_min_size = Vector2( 50, 50 )
 size_flags_horizontal = 7
 size_flags_vertical = 5
 texture_normal = ExtResource( 5 )

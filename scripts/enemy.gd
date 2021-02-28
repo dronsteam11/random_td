@@ -38,7 +38,6 @@ func _process(delta):
 		finish()
 	
 func finish():
-	print("finish")
 	player_data.health -= 1
 	queue_free()
 	pass

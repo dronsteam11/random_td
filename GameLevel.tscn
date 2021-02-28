@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://entities/towers/magic/t1_1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/enemy_manager.gd" type="Script" id=2]
@@ -28,6 +28,8 @@
 [ext_resource path="res://scripts/player_data.gd" type="Script" id=26]
 [ext_resource path="res://ui_entities/game_interface.tscn" type="PackedScene" id=27]
 [ext_resource path="res://scripts/state_manager.gd" type="Script" id=28]
+[ext_resource path="res://ui_entities/popup_tower_menu.tscn" type="PackedScene" id=29]
+[ext_resource path="res://scripts/input_manager.gd" type="Script" id=30]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -359,6 +361,9 @@ cell_magic = ExtResource( 24 )
 magic_tower = ExtResource( 1 )
 grid_path = NodePath("../Grid")
 
+[node name="PopUp" parent="." instance=ExtResource( 29 )]
+visible = false
+
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="Interface" parent="GUI" instance=ExtResource( 27 )]
@@ -400,5 +405,10 @@ script = ExtResource( 26 )
 
 [node name="StateManager" type="Node" parent="."]
 script = ExtResource( 28 )
+
+[node name="InputManager" type="Node" parent="."]
+script = ExtResource( 30 )
+[connection signal="screen_drag" from="InputManager" to="YSort/GameInteractMap" method="_on_screen_drag"]
+[connection signal="screen_pressed" from="InputManager" to="YSort/GameInteractMap" method="_on_screen_pressed"]
 
 [editable path="GUI/Interface"]

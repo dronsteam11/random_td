@@ -1,14 +1,21 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "teonr
 onready var state_manager : StateManager = get_node("/root/GameLevel/StateManager")
+
+var timer : Timer
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	timer = Timer.new()
+	timer.connect("timeout", self, "on_second")
+	add_child(timer)
+	timer.start(1)
 	state_manager.connect("on_state_change", self, "on_state_change")
 	pass # Replace with function body.
+
+func on_second():
+	$Top/Debug/DebugLabel.text = "FPS: " +str(Performance.get_monitor(Performance.TIME_FPS))
+	$Top/Debug/DebugLabel.text += "\nOBJ: " +str(Performance.get_monitor(Performance.RENDER_2D_DRAW_CALLS_IN_FRAME  ))
 
 func on_state_change(prev_state, new_state):
 	match new_state:
