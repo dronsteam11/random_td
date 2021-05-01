@@ -1,6 +1,9 @@
 extends Node2D
 class_name Tower
 
+export var tower_lvl : int = 1
+export var tower_type : int = 0
+
 export var shoot_cooldown : float = 1.0
 export var shoot_damage : float = 10.0
 export var shoot_distance : float = 10.0
@@ -11,10 +14,12 @@ export var projectile_entities : PackedScene
 var _is_ready_shoot = true
 onready var _enemy_manager : EnemyManager = get_node("/root/GameLevel/EnemyManager")
 
-var _enemy : Enemy = null
+var _enemy : GEntity = null
+
+var t_name : String
 
 func _ready():
-	pass
+	t_name = str(self.tower_lvl) + "_" +  str(self.tower_type)
 	
 var az = 3.0
 
@@ -60,6 +65,11 @@ func _shoot():
 	pass
 
 func _start_cooldown():
-	_is_ready_shoot = false
-	yield(get_tree().create_timer(shoot_cooldown), "timeout")
-	_is_ready_shoot = true
+	
+	if is_inside_tree():
+		_is_ready_shoot = false
+		yield(get_tree().create_timer(shoot_cooldown), "timeout")
+		_is_ready_shoot = true
+
+func is_equals(other: Tower) -> bool:
+	return other.tower_lvl == self.tower_lvl and other.tower_type == self.tower_type

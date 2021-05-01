@@ -1,9 +1,7 @@
 extends PathFollow2D
 class_name Enemy
 
-export var health : float = 100.0
-export var speed : float = 10.0
-export var bounty : int = 10
+onready var _stats_c : EStatsComponent = get_component(EStatsComponent)
 
 export var _sprite_bot_right : Texture
 export var _sprite_bot_left : Texture
@@ -17,11 +15,11 @@ var _dir :float = 0
 var _prev_pos : Vector2
 func _ready():
 	add_to_group("enemies")
-	pass
 
 func _process(delta):
+	
 	_prev_pos = self.global_position
-	self.offset += delta * speed
+	self.offset += delta * _stats_c.speed
 	
 	_dir = (self.global_position.angle_to_point(_prev_pos) / PI) * 180
 	
@@ -43,7 +41,14 @@ func finish():
 	pass
 	
 func damage(dmg : float):
-	health -= dmg
-	if health <= 0:
-		player_data.money += bounty
+	_stats_c.health -= dmg
+	if _stats_c.health <= 0:
+		player_data.money += _stats_c.bounty
 		queue_free()
+
+func get_component(component_type):
+	for component in get_children():
+		if component is component_type:
+			return component
+	printerr(str(component_type) +" not found")
+	return null

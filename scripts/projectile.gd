@@ -4,10 +4,10 @@ class_name Projectile
 var damage : float
 var speed : float
 
-var target : Enemy setget set_target
-var _target : Enemy
+var target : GEntity setget set_target
+var _target : GEntity
 
-func set_target(trg : Enemy, dmg : float = 10.0, spd : float = 5.0):
+func set_target(trg : GEntity, dmg : float = 10.0, spd : float = 5.0):
 	_target = trg
 	self.speed = spd
 	self.damage = dmg

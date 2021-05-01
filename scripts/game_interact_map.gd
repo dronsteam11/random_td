@@ -2,6 +2,7 @@ extends TileMap
 
 export var cell_magic : PackedScene
 export var magic_tower : PackedScene
+export var magic_tower_2 : PackedScene
 
 export var grid_path : NodePath
 var grid : Node2D
@@ -12,6 +13,8 @@ onready var player_data : PlayerData = get_node("../../PlayerData")
 var tiles
 
 var cells : Dictionary
+var towers : Dictionary
+
 var target_cell = null
 var prev_cell = null
 onready var popup_menu = get_node("../../PopUp")
@@ -26,33 +29,6 @@ func _ready():
 		cells[tile] = cm
 		add_child(cm)
 	pass
-
-#func _unhandled_input(event):
-#	if event is InputEventMouseMotion:
-#		popup_menu.hide()
-#		var new_cell = _get_cell()
-#		if new_cell:
-#			new_cell.self_modulate = Color.red
-#			if target_cell and target_cell != new_cell:
-#				target_cell.self_modulate = Color.white
-#		elif target_cell:
-#			target_cell.self_modulate = Color.white
-#			target_cell = null
-#		target_cell = new_cell
-#	elif  event is InputEventScreenTouch and event.is_pressed() == false:
-#		var new_cell : Node2D = _get_cell()
-#		if !new_cell: return
-#		if state_manager.build_state != 0:
-#			state_manager.set_build_state(0)
-#			print("!build!")
-#			if new_cell.get_child_count() == 0 and player_data.money >= 30:
-#				player_data.money -= 30
-#				var mt = magic_tower.instance()
-#				new_cell.add_child(mt)
-#		elif new_cell.get_child_count() != 0:
-#			print("!popup!")
-#			_press_cell(new_cell)
-#	pass
 
 func _press_cell(cell : Node2D):
 	print(prev_cell)
@@ -71,7 +47,6 @@ func _get_cell() -> Node2D:
 		return cells[pos]
 	return null
 
-
 func _on_screen_drag(event):
 	pass # Replace with function body.
 
@@ -83,12 +58,7 @@ func _on_screen_pressed(event):
 		return
 	
 	if state_manager.build_state != 0:
-		state_manager.set_build_state(0)
-		print("!build!")
-		if new_cell.get_child_count() == 0 and player_data.money >= 30:
-			player_data.money -= 30
-			var mt = magic_tower.instance()
-			new_cell.add_child(mt)
+		_build_tower(new_cell)
 	elif new_cell.get_child_count() != 0:
 		print("!popup!")
 		_press_cell(new_cell)
@@ -96,3 +66,38 @@ func _on_screen_pressed(event):
 		popup_menu.hide()
 	prev_cell = new_cell
 
+func _build_tower(cell):
+	state_manager.set_build_state(0)
+	print("!build!")
+	
+	if cell.get_child_count() == 0 and player_data.money >= 1:
+		player_data.money -= 1
+		var mt : Tower = magic_tower.instance()
+		cell.add_child(mt)
+		
+		add_tower(mt)
+		check_merge_towers()
+	print(towers)
+
+func check_merge_towers():
+	for tower in towers.values():
+		if(len(tower)) == 2:
+			print("upgrade towers")
+			var t0 : Tower = tower[0]
+			tower[0].tower_lvl = 2
+			var t1 = tower[1]
+			tower.erase (t0)
+			tower.erase (t1)
+			t1.queue_free()
+			var nt = magic_tower_2.instance()
+			t0.get_parent().add_child(nt)
+			t0.queue_free()
+			add_tower(nt)
+	pass
+
+func add_tower(tower : Tower):
+	if towers.has(tower.t_name):
+		towers[tower.t_name].push_back(tower)
+	else:
+		towers[tower.t_name] = [tower]
+		
