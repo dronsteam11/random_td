@@ -8,6 +8,7 @@
 
 [node name="T1_1" type="Node2D"]
 script = ExtResource( 1 )
+shoot_damage = 30.0
 shoot_distance = 300.0
 shoot_projectile_speed = 500.0
 projectile_entities = ExtResource( 5 )

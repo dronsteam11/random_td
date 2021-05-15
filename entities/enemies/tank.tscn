@@ -23,7 +23,7 @@ _sprite_top_right = ExtResource( 4 )
 
 [node name="EStatsComponent" type="Node" parent="."]
 script = ExtResource( 6 )
-speed = 1000.0
+speed = 100.0
 
 [node name="EMovementComponent" type="Node" parent="."]
 script = ExtResource( 3 )

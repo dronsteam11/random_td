@@ -11,6 +11,7 @@ modulate = Color( 0.878431, 0.105882, 0.796078, 1 )
 script = ExtResource( 1 )
 tower_lvl = 2
 shoot_cooldown = 0.8
+shoot_damage = 50.0
 shoot_distance = 400.0
 shoot_projectile_speed = 700.0
 projectile_entities = ExtResource( 5 )

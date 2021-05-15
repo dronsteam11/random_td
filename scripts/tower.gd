@@ -61,7 +61,7 @@ func _shoot():
 	var projectile : Projectile = projectile_entities.instance()
 	projectile.set_target(_enemy, shoot_damage, shoot_projectile_speed)
 	add_child(projectile)
-	_start_cooldown()
+	call_deferred('_start_cooldown')
 	pass
 
 func _start_cooldown():

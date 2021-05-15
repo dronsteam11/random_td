@@ -7,7 +7,7 @@ export var spawn_node_path : NodePath
 var spawn_node
 
 export var active : bool = true
-export var test_time_spawn : float = 10
+export var test_time_spawn : float = 0.1
 var enemies : Array = []
 
 func _ready():

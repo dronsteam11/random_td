@@ -8,6 +8,7 @@ export var money : int = 100 setget set_money, get_money
 export var health : int = 100 setget set_health, get_health
 
 func _ready():
+	Engine.target_fps = 60;
 	set_money(money)
 	set_health(health)
 

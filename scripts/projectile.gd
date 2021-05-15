@@ -21,8 +21,9 @@ func _process(delta):
 		var distanceThisFrame : float = speed * delta
 		
 		if dir.length() <= distanceThisFrame:
-			_target.damage(damage)
-			queue_free()
+			_target.call_deferred('damage', damage)
+			#_target.damage(damage)
+			call_deferred('queue_free')
 			return
 
 		global_translate(dir.normalized() * distanceThisFrame)

@@ -25,8 +25,10 @@ func _remove_self():
 	
 func _process(delta):
 	if !active: return
-	_path_move(delta)
-	_rotate()
+	call_deferred('_path_move', delta)
+	call_deferred('_rotate')
+	#_path_move(delta)
+	#_rotate()
 
 func _path_move(delta):
 	_movement_c.prev_position = self.global_position
@@ -35,23 +37,36 @@ func _path_move(delta):
 		_finish()
 
 func _rotate():
-	_dir_c.direction = (self.global_position.angle_to_point(_movement_c.path_f.get_child(0).global_position) / PI) * 180
+	#_dir_c.direction = _movement_c.prev_position.angle_to_point(_movement_c.path_f.get_child(0).global_position / PI) * 180
+	#(self.global_position.angle_to_point(_movement_c.path_f.get_child(0).global_position) / PI) * 180
+	var dir  = self.global_position.direction_to(_movement_c.path_f.get_child(0).global_position)
+	dir = dir.angle()
 
-	if _dir_c.direction > 0 and _dir_c.direction <= 45:
+	if dir < -1.5 and dir >= -3:
 		_dir_c.texture = _dir_c._sprite_top_left
-	elif _dir_c.direction <= 0 and _dir_c.direction >= -45:
+	elif dir >= 1.5 and dir <= 3:
 		_dir_c.texture = _dir_c._sprite_bot_left
-	elif _dir_c.direction <= -135 and _dir_c.direction >= -180:
+	elif dir < 1.5 and dir >= 0:
 		_dir_c.texture = _dir_c._sprite_bot_right
-	elif _dir_c.direction >= 135 and _dir_c.direction <= 180:
+	elif dir <= 0 and dir >= -1.5:
 		_dir_c.texture = _dir_c._sprite_top_right
+
+
+#	if _dir_c.direction > 0 and _dir_c.direction <= 45:
+#		_dir_c.texture = _dir_c._sprite_top_left
+#	elif _dir_c.direction <= 0 and _dir_c.direction >= -45:
+#		_dir_c.texture = _dir_c._sprite_bot_left
+#	elif _dir_c.direction <= -135 and _dir_c.direction >= -180:
+#		_dir_c.texture = _dir_c._sprite_bot_right
+#	elif _dir_c.direction >= 135 and _dir_c.direction <= 180:
+#		_dir_c.texture = _dir_c._sprite_top_right
 	
 #PUBLICK
 func damage(dmg : float):
 	_stats_c.health -= dmg
 	if _stats_c.health <= 0:
 		player_data.money += _stats_c.bounty
-		_remove_self()
+		call_deferred('_remove_self')
 
 func set_path(path : PathFollow2D):
 	_movement_c.path_f = path
