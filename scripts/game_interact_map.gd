@@ -110,7 +110,7 @@ func _remove_towers(tower_arr):
 	var arr = towers[tower_arr[0].t_name]
 	for t in tower_arr:
 		arr.erase(t)
-		t.call_deferred('queue_free')
+		t.call_deferred('safe_free')
 		
 func _get_towers_arr(tower : Tower, count):
 	var t_arr = []

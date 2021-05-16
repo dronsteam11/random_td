@@ -1,18 +1,27 @@
 extends GEntity
 
-onready var player_data : PlayerData = get_node("/root/GameLevel/PlayerData")
+var player_data : PlayerData
 
 #COMPONENTS
 var _stats_c : EStatsComponent 
 var _movement_c : EMovementComponent
 var _dir_c : EDirectionChange
 
-#LOCAL
-func _ready():
+func _enter_tree():
+	set_process(false)
 	_stats_c  = get_component(EStatsComponent)
 	_movement_c = get_component(EMovementComponent)
 	_dir_c = get_component(EDirectionChange)
 	add_to_group("enemies")
+	
+	player_data = get_node("/root/GameLevel/PlayerData")
+	_movement_c.path_f.get_child(0).remote_path = get_path()
+#LOCAL
+#func _ready():
+#	_stats_c  = get_component(EStatsComponent)
+#	_movement_c = get_component(EMovementComponent)
+#	_dir_c = get_component(EDirectionChange)
+#	add_to_group("enemies")
 
 func _finish():
 	player_data.health -= 1
@@ -23,12 +32,16 @@ func _remove_self():
 	_movement_c.path_f.queue_free()
 	queue_free()
 	
-func _process(delta):
-	if !active: return
-	call_deferred('_path_move', delta)
-	call_deferred('_rotate')
+#func _process(delta):
+#	if !active: return
+#	call_deferred('_path_move', delta)
+#	call_deferred('_rotate')
 	#_path_move(delta)
 	#_rotate()
+func _physics_process(delta):
+	if !active: return
+	_path_move(delta)
+	_rotate()
 
 func _path_move(delta):
 	_movement_c.prev_position = self.global_position
@@ -66,7 +79,8 @@ func damage(dmg : float):
 	_stats_c.health -= dmg
 	if _stats_c.health <= 0:
 		player_data.money += _stats_c.bounty
-		call_deferred('_remove_self')
+		_remove_self()
 
 func set_path(path : PathFollow2D):
+	_movement_c = get_component(EMovementComponent)
 	_movement_c.path_f = path

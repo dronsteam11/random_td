@@ -324,6 +324,9 @@ extents = Vector2( 824.943, 458.863 )
 
 [node name="GameLevel" type="Node2D"]
 
+[node name="PlayerData" type="Node" parent="."]
+script = ExtResource( 26 )
+
 [node name="EnemyManager" type="Node" parent="."]
 script = ExtResource( 2 )
 spawn_node_path = NodePath("../YSort")
@@ -402,9 +405,6 @@ script = ExtResource( 25 )
 position = Vector2( 489.538, 269.795 )
 shape = SubResource( 3 )
 disabled = true
-
-[node name="PlayerData" type="Node" parent="."]
-script = ExtResource( 26 )
 
 [node name="StateManager" type="Node" parent="."]
 script = ExtResource( 28 )

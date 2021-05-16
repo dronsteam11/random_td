@@ -17,8 +17,13 @@ onready var _enemy_manager : EnemyManager = get_node("/root/GameLevel/EnemyManag
 var _enemy : GEntity = null
 
 var t_name : String
+var cd_timer : Timer
 
 func _ready():
+	cd_timer = Timer.new()
+	add_child(cd_timer)
+	cd_timer.connect("timeout", self, '_start_cooldown')
+	cd_timer.wait_time = shoot_cooldown
 	t_name = str(self.tower_lvl) + "_" +  str(self.tower_type)
 	
 var az = 3.0
@@ -61,15 +66,23 @@ func _shoot():
 	var projectile : Projectile = projectile_entities.instance()
 	projectile.set_target(_enemy, shoot_damage, shoot_projectile_speed)
 	add_child(projectile)
-	call_deferred('_start_cooldown')
+	_is_ready_shoot = false
+	cd_timer.start()
 	pass
 
 func _start_cooldown():
-	
-	if is_inside_tree():
-		_is_ready_shoot = false
-		yield(get_tree().create_timer(shoot_cooldown), "timeout")
-		_is_ready_shoot = true
+	_is_ready_shoot = true
+#	if is_inside_tree():
+#		_is_ready_shoot = false
+#		cd_timer = get_tree().create_timer(shoot_cooldown), "timeout")
+#		_is_ready_shoot = true
 
 func is_equals(other: Tower) -> bool:
 	return other.tower_lvl == self.tower_lvl and other.tower_type == self.tower_type
+
+func safe_free():
+	queue_free()
+	pass
+#	if cd_timer != null and cd_timer.is_valid():
+#		cd_timer.resume()
+#	queue_free()

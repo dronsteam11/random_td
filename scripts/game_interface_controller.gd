@@ -15,7 +15,7 @@ func _ready():
 
 func on_second():
 	$Top/Debug/DebugLabel.text = "FPS: " +str(Performance.get_monitor(Performance.TIME_FPS))
-	$Top/Debug/DebugLabel.text += "\nOBJ: " +str(Performance.get_monitor(Performance.RENDER_2D_DRAW_CALLS_IN_FRAME  ))
+	$Top/Debug/DebugLabel.text += "\nOBJ: " +str(Performance.get_monitor(Performance.OBJECT_COUNT ))
 
 func on_state_change(prev_state, new_state):
 	match new_state:

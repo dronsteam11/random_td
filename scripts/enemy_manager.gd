@@ -7,7 +7,7 @@ export var spawn_node_path : NodePath
 var spawn_node
 
 export var active : bool = true
-export var test_time_spawn : float = 0.1
+export var test_time_spawn : float = 0.5
 var enemies : Array = []
 
 func _ready():
@@ -28,13 +28,10 @@ func create_enemy():
 	
 	path_f.add_child(RemoteTransform2D.new())
 	get_child(0).add_child(path_f)
-	new_enemy.active = false
-	
-	spawn_node.add_child(new_enemy)
-	new_enemy._ready()
-	path_f.get_child(0).remote_path = new_enemy.get_path()
+
 	new_enemy.set_path(path_f)
-	new_enemy.active = true
+	spawn_node.call_deferred('add_child', new_enemy)
+
 	pass
 
 func _test_spawn():
